@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="717" height="387" viewBox="0 0 717 387">
+  <rect width="717" height="387" fill="#010409"/>
+  <rect x="0" y="3" width="717" height="36" fill="#0d1117"/>
+  <line x1="0" y1="2" x2="717" y2="2" stroke="#30363d"/>
+  <line x1="0" y1="69" x2="717" y2="69" stroke="#161b22"/>
+  <text x="21" y="28" fill="#8b949e" font-family="Consolas, Courier New, monospace" font-size="13">PROBLEMS</text>
+  <text x="118" y="28" fill="#8b949e" font-family="Consolas, Courier New, monospace" font-size="13">OUTPUT</text>
+  <text x="199" y="28" fill="#8b949e" font-family="Consolas, Courier New, monospace" font-size="13">DEBUG CONSOLE</text>
+  <text x="335" y="28" fill="#ffffff" font-family="Consolas, Courier New, monospace" font-size="13">TERMINAL</text>
+  <text x="430" y="28" fill="#8b949e" font-family="Consolas, Courier New, monospace" font-size="13">PORTS</text>
+  <text x="496" y="28" fill="#8b949e" font-family="Consolas, Courier New, monospace" font-size="13">CLOUDFLARE TUNNEL</text>
+  <line x1="333" y1="38" x2="402" y2="38" stroke="#f85149"/>
+
+  <text x="21" y="64" fill="#ffffff" font-family="Consolas, Courier New, monospace" font-size="16">PS C:\Users\Asus\OneDrive\Desktop\System Design\AtmCard&gt; </text>
+  <text x="568" y="64" fill="#ffd33d" font-family="Consolas, Courier New, monospace" font-size="16">.\a.exe</text>
+
+  <text x="21" y="110" fill="#ffffff" font-family="Consolas, Courier New, monospace" font-size="16">Transaction Id : 2</text>
+  <text x="21" y="132" fill="#ffffff" font-family="Consolas, Courier New, monospace" font-size="16">Type : Withdraw</text>
+  <text x="21" y="154" fill="#ffffff" font-family="Consolas, Courier New, monospace" font-size="16">Amount : 2000</text>
+  <text x="21" y="176" fill="#ffffff" font-family="Consolas, Courier New, monospace" font-size="16">------ RECEIPT ------</text>
+  <text x="21" y="198" fill="#ffffff" font-family="Consolas, Courier New, monospace" font-size="16">Available Balance : 4000</text>
+  <text x="21" y="220" fill="#ffffff" font-family="Consolas, Courier New, monospace" font-size="16">---------------------</text>
+
+  <text x="21" y="264" fill="#ffffff" font-family="Consolas, Courier New, monospace" font-size="16">Account Number : ACC1001</text>
+  <text x="21" y="286" fill="#ffffff" font-family="Consolas, Courier New, monospace" font-size="16">Customer Name : Alok</text>
+  <text x="21" y="308" fill="#ffffff" font-family="Consolas, Courier New, monospace" font-size="16">Balance : 4000</text>
+
+  <text x="21" y="330" fill="#ffffff" font-family="Consolas, Courier New, monospace" font-size="16">PS C:\Users\Asus\OneDrive\Desktop\System Design\AtmCard&gt;</text>
+  <rect x="534" y="312" width="9" height="18" fill="#c9d1d9"/>
+</svg>

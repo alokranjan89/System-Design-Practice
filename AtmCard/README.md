@@ -240,3 +240,6 @@ Customer Name : Alok
 Balance : 4000
 ```
 
+## Output Screenshot
+
+![ATM card terminal output](./output-screenshot.svg)
