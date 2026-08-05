@@ -1,75 +1,61 @@
 # System Design and LLD Practice
 
-This repository is my personal practice space for learning and improving **Low Level Design (LLD)** and **System Design** concepts through hands-on coding exercises.
+This repository is a study collection for **Low Level Design (LLD)** and **System Design** concepts implemented in C++.
 
-The goal of this folder is to build small design problems step by step, write clean object-oriented code, and understand how real-world systems can be modeled using classes, relationships, responsibilities, and design principles.
-
-## What I Am Practicing
-
-- Low Level Design problems
-- Object-oriented programming concepts
-- Class design and relationships
-- Encapsulation, inheritance, abstraction, and polymorphism
-- SOLID principles
-- Design patterns
-- System design fundamentals
-- Clean code and readable project structure
+Each folder contains one example or pattern with source code and a short README for easy learning.
 
 ## Repository Structure
 
 ```text
 System Design/
-+-- ProblemName/
-|   +-- solution files
-|   +-- notes or README
++-- AnimalManagement/
++-- AtmCard/
++-- BankManagement/
++-- DRY/
++-- EmployeeManagement/
++-- ObserverDesignPattern/
++-- SimpleFactory/
++-- Singleton/
++-- Solid/
++-- VehicleManagement/
 +-- README.md
++-- .gitignore
 ```
 
-Each problem will be kept in its own folder. The folder may contain source code, notes, diagrams, rough design ideas, or a short README explaining the approach.
+## Current Examples
 
-## How I Will Organize Problems
+- `AnimalManagement/` - abstract classes and polymorphism for animals
+- `AtmCard/` - ATM card authentication and account operations
+- `BankManagement/` - basic bank account and customer relationship design
+- `DRY/` - demonstration of the DRY principle
+- `EmployeeManagement/` - abstract employee structure and polymorphism
+- `ObserverDesignPattern/` - observer pattern examples
+- `SimpleFactory/` - factory patterns and object creation
+- `Singleton/` - singleton design pattern example
+- `Solid/` - SOLID principle examples
+- `VehicleManagement/` - vehicle factory design pattern
 
-For each practice question, I will try to include:
+## How to Use
 
-- Problem statement
-- Requirements
-- Main entities
-- Class design
-- Relationships between classes
-- Important assumptions
-- Code implementation
-- Sample test or demo
+1. Open a folder in your C++ IDE or terminal.
+2. Compile the `.cpp` file in that folder with a C++ compiler.
+3. Run the generated executable.
 
-## How To Run
+Example with `g++`:
 
-Each problem may use a different language or setup. Run instructions will be added inside the specific problem folder whenever needed.
+```powershell
+cd "System Design\BankManagement"
+g++ -std=c++17 -Wall -Wextra bank_management.cpp -o bank_management.exe
+./bank_management.exe
+```
 
-## Practice Approach
+## Goals
 
-For every new LLD or system design problem, I will try to follow this structure:
-
-1. Understand the requirements.
-2. Identify the main entities.
-3. Define class responsibilities.
-4. Decide relationships between classes.
-5. Apply relevant OOP principles.
-6. Write clean and simple code.
-7. Test with a small example in `main`.
-8. Improve the design after reviewing it.
-
-## Future Problems To Add
-
-- Parking Lot
-- Elevator System
-- Library Management System
-- Food Delivery System
-- Movie Ticket Booking System
-- Splitwise
-- Logger System
-- Notification System
-- Rate Limiter
-- URL Shortener
+- Keep each problem in its own folder
+- Include short notes for each example
+- Use clear and consistent file names
+- Avoid storing compiled binaries in Git
 
 ## Notes
 
-This repository is for practice and learning. Code may start simple first, then improve gradually as I revisit each problem and apply better design decisions.
+This repository is a learning workspace. The examples are kept small so they are easy to study and extend later.

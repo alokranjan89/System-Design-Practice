@@ -1,0 +1,19 @@
+# Ignore build artifacts
+*.exe
+*.out
+*.obj
+*.o
+*.log
+
+# Ignore Visual Studio files
+*.vcxproj*
+*.suo
+*.user
+*.ncb
+*.opensdf
+*.sdf
+
+# Ignore temporary files
+*~
+*.tmp
+*.swp
