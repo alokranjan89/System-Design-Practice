@@ -2,38 +2,42 @@
 
 This repository is a study collection for **Low Level Design (LLD)** and **System Design** concepts implemented in C++.
 
-Each folder contains one example or pattern with source code and a short README for easy learning.
+The repository is organized by pattern family and example type so related files stay grouped together.
 
 ## Repository Structure
 
 ```text
 System Design/
-+-- AnimalManagement/
-+-- AtmCard/
-+-- BankManagement/
-+-- DRY/
-+-- EmployeeManagement/
-+-- ObserverDesignPattern/
-+-- SimpleFactory/
-+-- Singleton/
-+-- Solid/
-+-- VehicleManagement/
++-- DesignPatterns/
+|   +-- Creational/
+|   |   +-- SimpleFactory/
+|   |   +-- Singleton/
+|   |   +-- Creational-Design-Pattern/
+|   +-- Behavioral/
+|       +-- ObserverDesignPattern/
+|       +-- strategy-Design-pattern/
++-- Principles/
+|   +-- Solid/
+|   +-- DRY/
+|   +-- KISS/
+|   +-- YAGNI/
++-- Examples/
+|   +-- AnimalManagement/
+|   +-- AtmCard/
+|   +-- BankManagement/
+|   +-- EmployeeManagement/
+|   +-- LibraryManagement/
+|   +-- VehicleManagement/
 +-- README.md
 +-- .gitignore
 ```
 
 ## Current Examples
 
-- `AnimalManagement/` - abstract classes and polymorphism for animals
-- `AtmCard/` - ATM card authentication and account operations
-- `BankManagement/` - basic bank account and customer relationship design
-- `DRY/` - demonstration of the DRY principle
-- `EmployeeManagement/` - abstract employee structure and polymorphism
-- `ObserverDesignPattern/` - observer pattern examples
-- `SimpleFactory/` - factory patterns and object creation
-- `Singleton/` - singleton design pattern example
-- `Solid/` - SOLID principle examples
-- `VehicleManagement/` - vehicle factory design pattern
+- `DesignPatterns/Creational/` - creational design pattern examples and object creation strategies
+- `DesignPatterns/Behavioral/` - behavioral design pattern examples
+- `Principles/` - single-responsibility, DRY, KISS, YAGNI, and SOLID principle demos
+- `Examples/` - general system design examples for animals, banking, library, and vehicles
 
 ## How to Use
 
