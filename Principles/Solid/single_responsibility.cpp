@@ -134,11 +134,11 @@
 
 // SRP DOES NOT mean:
 //
-// One class = One method ❌
+// One class = One method BAD:
 //
 // SRP means:
 //
-// One class = One responsibility ✅
+// One class = One responsibility OK:
 
 
 // ======================================================
@@ -376,8 +376,8 @@ Invoice sent for Order 101
 // only one class needs modification.
 
 // This makes the code:
-// ✔ Easy to maintain
-// ✔ Easy to test
-// ✔ Easy to extend
-// ✔ Less coupled
-// ✔ Highly cohesive
+// OK: Easy to maintain
+// OK: Easy to test
+// OK: Easy to extend
+// OK: Less coupled
+// OK: Highly cohesive

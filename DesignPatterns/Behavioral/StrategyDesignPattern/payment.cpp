@@ -27,7 +27,7 @@ class CreditCardPayment : public PaymentStrategy
 public:
     void pay(int amount) override
     {
-        cout << "Paid ₹" << amount
+        cout << "Paid Rs. " << amount
              << " using Credit Card" << endl;
     }
 };
@@ -41,7 +41,7 @@ class UpiPayment : public PaymentStrategy
 public:
     void pay(int amount) override
     {
-        cout << "Paid ₹" << amount
+        cout << "Paid Rs. " << amount
              << " using UPI" << endl;
     }
 };
@@ -55,7 +55,7 @@ class PaypalPayment : public PaymentStrategy
 public:
     void pay(int amount) override
     {
-        cout << "Paid ₹" << amount
+        cout << "Paid Rs. " << amount
              << " using PayPal" << endl;
     }
 };

@@ -10,14 +10,15 @@ The repository is organized by pattern family and example type so related files 
 System Design/
 +-- DesignPatterns/
 |   +-- Creational/
-|   |   +-- SimpleFactory/
+|   |   +-- Builder/
+|   |   +-- FactoryPatterns/
+|   |   +-- Prototype/
 |   |   +-- Singleton/
-|   |   +-- Creational-Design-Pattern/
 |   +-- Behavioral/
 |       +-- ObserverDesignPattern/
-|       +-- strategy-Design-pattern/
+|       +-- StrategyDesignPattern/
 +-- Principles/
-|   +-- Solid/
+|   +-- SOLID/
 |   +-- DRY/
 |   +-- KISS/
 |   +-- YAGNI/
@@ -26,6 +27,7 @@ System Design/
 |   +-- AtmCard/
 |   +-- BankManagement/
 |   +-- EmployeeManagement/
+|   +-- HospitalManagement/
 |   +-- LibraryManagement/
 |   +-- VehicleManagement/
 +-- README.md
@@ -48,9 +50,16 @@ System Design/
 Example with `g++`:
 
 ```powershell
-cd "System Design\BankManagement"
+cd "System Design\Examples\BankManagement"
 g++ -std=c++17 -Wall -Wextra bank_management.cpp -o bank_management.exe
 ./bank_management.exe
+```
+
+To compile any other example, move into its folder and replace the file name:
+
+```powershell
+g++ -std=c++17 -Wall -Wextra file_name.cpp -o file_name.exe
+./file_name.exe
 ```
 
 ## Goals

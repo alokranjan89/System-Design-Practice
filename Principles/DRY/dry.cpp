@@ -33,9 +33,9 @@ using namespace std;
 //
 // This increases:
 //
-// ❌ Bugs
-// ❌ Maintenance Cost
-// ❌ Development Time
+// BAD: Bugs
+// BAD: Maintenance Cost
+// BAD: Development Time
 
 // DRY solves this by keeping
 // logic in one place.
@@ -211,63 +211,63 @@ bool isAdmin(string role)
 // Where is DRY Used?
 // ==========================================================
 
-// ✔ Tax Calculation
+// OK: Tax Calculation
 //
-// ✔ Discount Calculation
+// OK: Discount Calculation
 //
-// ✔ Authentication
+// OK: Authentication
 //
-// ✔ Authorization
+// OK: Authorization
 //
-// ✔ Validation
+// OK: Validation
 //
-// ✔ Database Connection
+// OK: Database Connection
 //
-// ✔ Logging
+// OK: Logging
 //
-// ✔ Error Handling
+// OK: Error Handling
 //
-// ✔ Utility Functions
+// OK: Utility Functions
 //
-// ✔ API Wrapper
+// OK: API Wrapper
 //
-// ✔ Email Sending
+// OK: Email Sending
 //
-// ✔ React Components
+// OK: React Components
 //
-// ✔ Express Middleware
+// OK: Express Middleware
 //
-// ✔ Node.js Services
+// OK: Node.js Services
 
 // ==========================================================
 // Advantages
 // ==========================================================
 
-// ✔ Less Code
+// OK: Less Code
 //
-// ✔ Easy Maintenance
+// OK: Easy Maintenance
 //
-// ✔ Easy Testing
+// OK: Easy Testing
 //
-// ✔ Less Bugs
+// OK: Less Bugs
 //
-// ✔ Better Readability
+// OK: Better Readability
 //
-// ✔ Better Reusability
+// OK: Better Reusability
 
 // ==========================================================
 // Common Mistakes
 // ==========================================================
 
-// ❌ Copy Paste Programming
+// BAD: Copy Paste Programming
 //
-// ❌ Same Logic in Multiple Files
+// BAD: Same Logic in Multiple Files
 //
-// ❌ Same Validation Everywhere
+// BAD: Same Validation Everywhere
 //
-// ❌ Multiple Database Connections
+// BAD: Multiple Database Connections
 //
-// ❌ Duplicate SQL Queries
+// BAD: Duplicate SQL Queries
 
 // ==========================================================
 // Interview Questions

@@ -201,7 +201,7 @@ Paid using PayPal
 //
 // Cannot create:
 //
-// Payment p;   ❌
+// Payment p;   BAD:
 //
 // Child classes MUST override pay().
 
@@ -293,14 +293,14 @@ Paid using PayPal
 // WHERE IS OCP USED?
 // ==========================================================
 
-// ✔ Payment Gateway
-// ✔ Notification System
-// ✔ Authentication
-// ✔ Tax Calculation
-// ✔ Discount System
-// ✔ Vehicle Types
-// ✔ File Export
-// ✔ Shipping Partner
+// OK: Payment Gateway
+// OK: Notification System
+// OK: Authentication
+// OK: Tax Calculation
+// OK: Discount System
+// OK: Vehicle Types
+// OK: File Export
+// OK: Shipping Partner
 
 // ==========================================================
 // INTERVIEW QUESTIONS

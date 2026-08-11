@@ -29,7 +29,7 @@ public:
 
     void borrowBook()
     {
-        cout << name << "borrowd a book." << endl;
+        cout << name << " borrowed a book." << endl;
     }
 
     void returnBook()
@@ -50,15 +50,15 @@ public:
     }
     void addBook()
     {
-        cout << name << "Added Book." << endl;
+        cout << name << " added a book." << endl;
     }
     void removeBook()
     {
-        cout << name << "Remove Book." << endl;
+        cout << name << " removed a book." << endl;
     }
     void issueBook()
     {
-        cout << name << "Issued Book." << endl;
+        cout << name << " issued a book." << endl;
     }
 
     void displayRole() override
@@ -144,7 +144,7 @@ public:
 
 int main()
 {
-    // Create Libraray
+    // Create Library
     Library library("Central Library");
 
     // Create Books

@@ -31,10 +31,10 @@ using namespace std;
 //
 // This leads to:
 //
-// ❌ Empty methods
-// ❌ Dummy implementations
-// ❌ Confusing code
-// ❌ Poor design
+// BAD: Empty methods
+// BAD: Dummy implementations
+// BAD: Confusing code
+// BAD: Poor design
 
 // ==========================================================
 // BAD DESIGN
@@ -53,11 +53,11 @@ using namespace std;
 // Every employee is forced to implement
 // every method.
 //
-// Chef ❌ takePayment()
+// Chef BAD: takePayment()
 //
-// Cashier ❌ cook()
+// Cashier BAD: cook()
 //
-// Waiter ❌ cook()
+// Waiter BAD: cook()
 //
 // Violates ISP.
 
@@ -260,7 +260,7 @@ Cashier is taking payment.
 // Where is ISP Used?
 // ==========================================================
 
-// ✔ Printer
+// OK: Printer
 //
 // Printable
 //
@@ -270,7 +270,7 @@ Cashier is taking payment.
 
 // ----------------------------------------------------------
 
-// ✔ Notification
+// OK: Notification
 //
 // EmailNotifier
 //
@@ -280,7 +280,7 @@ Cashier is taking payment.
 
 // ----------------------------------------------------------
 
-// ✔ Payment Gateway
+// OK: Payment Gateway
 //
 // Payable
 //
@@ -290,7 +290,7 @@ Cashier is taking payment.
 
 // ----------------------------------------------------------
 
-// ✔ Authentication
+// OK: Authentication
 //
 // Login
 //
@@ -300,7 +300,7 @@ Cashier is taking payment.
 
 // ----------------------------------------------------------
 
-// ✔ Cloud Storage
+// OK: Cloud Storage
 //
 // Readable
 //
@@ -317,7 +317,7 @@ Cashier is taking payment.
 // "Is this class implementing
 // methods it never uses?"
 //
-// YES → ISP Violation.
+// YES -> ISP Violation.
 
 // ==========================================================
 // Interview Keywords
@@ -337,7 +337,7 @@ Cashier is taking payment.
 // Common Mistakes
 // ==========================================================
 
-// ❌ One Giant Interface
+// BAD: One Giant Interface
 //
 // class Machine
 // {

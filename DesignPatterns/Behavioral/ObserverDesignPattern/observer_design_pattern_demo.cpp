@@ -74,7 +74,7 @@ public:
     {
         latestVideo = title;
 
-        cout << "\n🎥 "
+        cout << "\n[Video] "
              << channelName
              << " uploaded : "
              << latestVideo
@@ -102,7 +102,7 @@ public:
 
     void update(string videoTitle) override
     {
-        cout << "🔔 "
+        cout << "[Notification] "
              << name
              << " received notification : "
              << videoTitle

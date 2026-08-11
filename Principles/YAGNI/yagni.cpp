@@ -39,21 +39,21 @@ using namespace std;
 
 // Building unnecessary features causes:
 //
-// ❌ Wasted Development Time
+// BAD: Wasted Development Time
 //
-// ❌ More Bugs
+// BAD: More Bugs
 //
-// ❌ Difficult Maintenance
+// BAD: Difficult Maintenance
 //
-// ❌ Larger Codebase
+// BAD: Larger Codebase
 //
-// ❌ Unused Code
+// BAD: Unused Code
 //
 // Instead:
 //
-// ✔ Build only what is required.
+// OK: Build only what is required.
 //
-// ✔ Add new features when needed.
+// OK: Add new features when needed.
 
 // ==========================================================
 // BAD DESIGN
@@ -226,13 +226,13 @@ Addition : 30
 // Where is YAGNI Used?
 // ==========================================================
 
-// ✔ Backend APIs
+// OK: Backend APIs
 //
 // Build only required endpoints.
 
 // ----------------------------------------------------------
 
-// ✔ Database
+// OK: Database
 //
 // Create only required tables.
 //
@@ -241,7 +241,7 @@ Addition : 30
 
 // ----------------------------------------------------------
 
-// ✔ LLD
+// OK: LLD
 //
 // Design only required classes.
 //
@@ -249,13 +249,13 @@ Addition : 30
 
 // ----------------------------------------------------------
 
-// ✔ Frontend
+// OK: Frontend
 //
 // Build only requested screens.
 
 // ----------------------------------------------------------
 
-// ✔ System Design
+// OK: System Design
 //
 // Avoid over-engineering.
 
@@ -263,31 +263,31 @@ Addition : 30
 // Advantages
 // ==========================================================
 
-// ✔ Less Code
+// OK: Less Code
 //
-// ✔ Faster Development
+// OK: Faster Development
 //
-// ✔ Easy Maintenance
+// OK: Easy Maintenance
 //
-// ✔ Less Bugs
+// OK: Less Bugs
 //
-// ✔ Better Focus
+// OK: Better Focus
 //
-// ✔ Smaller Codebase
+// OK: Smaller Codebase
 
 // ==========================================================
 // Common Mistakes
 // ==========================================================
 
-// ❌ Building future features.
+// BAD: Building future features.
 //
-// ❌ Creating unnecessary classes.
+// BAD: Creating unnecessary classes.
 //
-// ❌ Creating unnecessary APIs.
+// BAD: Creating unnecessary APIs.
 //
-// ❌ Adding extra database tables.
+// BAD: Adding extra database tables.
 //
-// ❌ Over Engineering.
+// BAD: Over Engineering.
 
 // ==========================================================
 // Interview Questions

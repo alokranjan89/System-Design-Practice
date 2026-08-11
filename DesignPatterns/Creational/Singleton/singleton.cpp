@@ -1,79 +1,8 @@
-// #include <iostream>
-// #include <mutex>
-// using namespace std;
-
-// Method 1: Lazy initialization using static pointer + mutex
-//
-// Steps:
-// 1. Keep a static pointer named instance.
-// 2. Set instance to nullptr at the start.
-// 3. When getInstance() is called, first check if object is not created.
-// 4. Lock the mutex so only one thread can create the object.
-// 5. Check instance again after locking.
-// 6. Create the object only once using new Singleton().
-// 7. Return the same object address every time.
-//
-// Advantages:
-// - Object is created only when it is needed.
-// - Mutex helps make object creation thread-safe.
-// - Double check avoids locking after the object is already created.
-//
-// Disadvantages:
-// - Code is longer and more complex.
-// - Uses new, so object cleanup needs care.
-// - Wrong locking logic can create thread-safety bugs.
-//
-// class Singleton
-// {
-// private:
-//     static Singleton *instance;
-//     static mutex mtx;
-//
-//     // Private constructor stops direct object creation from outside.
-//     Singleton()
-//     {
-//         cout << "Singleton New Object" << endl;
-//     }
-//
-// public:
-//     static Singleton *getInstance()
-//     {
-//         // First check: if object already exists, return it directly.
-//         if (instance == nullptr)
-//         {
-//             // Lock before creating object, so only one thread enters here.
-//             lock_guard<mutex> lock(mtx);
-//
-//             // Second check: another thread may have created it already.
-//             if (instance == nullptr)
-//             {
-//                 instance = new Singleton();
-//             }
-//         }
-//
-//         return instance;
-//     }
-// };
-//
-// Singleton *Singleton ::instance = nullptr;
-// mutex Singleton::mtx;
-
-// int main()
-// {
-//     Singleton *s1 = Singleton ::getInstance();
-//     Singleton *s2 = Singleton ::getInstance();
-
-//     cout << (s1 == s2) << endl;
-// }
-
-
-// 
 #include <iostream>
-#include <mutex>
 
 using namespace std;
 
-// Method 2: Eager initialization using static pointer
+// Singleton using eager initialization with a static pointer.
 //
 // Steps:
 // 1. Keep a static pointer named instance.
@@ -101,7 +30,7 @@ private:
     // Private constructor prevents creating objects directly in main().
     Singleton()
     {
-        cout << "Singleton Constrctor Called" << endl;
+        cout << "Singleton Constructor Called" << endl;
     }
 
 public:

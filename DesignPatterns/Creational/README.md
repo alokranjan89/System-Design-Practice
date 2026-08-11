@@ -1,4 +1,4 @@
-﻿# Creational Design Patterns
+# Creational Design Patterns
 
 This folder contains creational design pattern examples and one central guide.
 All information about these patterns is kept in this single `README.md`.
@@ -9,6 +9,8 @@ All information about these patterns is kept in this single `README.md`.
   - `simple_factory.cpp`
   - `factory_method.cpp`
   - `abstract_factory.cpp`
+- `Prototype/`
+  - `prototype.cpp`
 - `Singleton/`
   - `singleton.cpp`
 
@@ -16,10 +18,11 @@ All information about these patterns is kept in this single `README.md`.
 
 Creational patterns are about how objects are created. These examples demonstrate:
 
-- `Simple Factory` — a single place decides which object to create.
-- `Factory Method` — subclasses decide which concrete object to instantiate.
-- `Abstract Factory` — create families of related objects without specifying concrete classes.
-- `Singleton` — ensure only one shared instance exists.
+- `Simple Factory` - a single place decides which object to create.
+- `Factory Method` - subclasses decide which concrete object to instantiate.
+- `Abstract Factory` - create families of related objects without specifying concrete classes.
+- `Prototype` - create objects by cloning an existing object.
+- `Singleton` - ensure only one shared instance exists.
 
 ## Pattern Summaries
 
@@ -64,11 +67,22 @@ Creational patterns are about how objects are created. These examples demonstrat
 - Ensure thread safety when you use lazy initialization in C++.
 - Prefer dependency injection if the singleton behavior is only needed for testing convenience.
 
+### Prototype
+- Creates new objects by copying an existing object.
+- Useful when object construction is expensive or when many objects share the same starting state.
+- Example in `Prototype/prototype.cpp`.
+
+**Important Notes:**
+- Decide whether each clone should use shallow copy or deep copy.
+- Avoid sharing mutable internal state accidentally.
+- Prefer smart pointers in larger projects to manage cloned object ownership safely.
+
 ## When to Use Each Pattern
 
 - **Simple Factory**: when you want one place to create similar objects and reduce `new` usage.
 - **Factory Method**: when the class cannot know exactly which concrete object will be needed.
 - **Abstract Factory**: when you need to create matching objects from the same product family.
+- **Prototype**: when cloning an existing configured object is easier than building from scratch.
 - **Singleton**: when a single shared instance should be used globally.
 
 ## How to Run the Examples
@@ -89,8 +103,15 @@ g++ -std=c++17 -Wall singleton.cpp -o singleton.exe
 ./singleton.exe
 ```
 
+For Prototype:
+```powershell
+cd "System Design\DesignPatterns\Creational\Prototype"
+g++ -std=c++17 -Wall prototype.cpp -o prototype.exe
+./prototype.exe
+```
+
 ## Notes
 
-- This folder now uses a single, central `README.md` for documentation.
-- Subfolder READMEs are removed so the documentation is easier to find.
-- Use the source files in `FactoryPatterns/` and `Singleton/` to study each pattern.
+- Use the source files in each subfolder to study one pattern at a time.
+- Subfolder READMEs contain extra notes for specific examples.
+- Keep generated `.exe` files out of Git.

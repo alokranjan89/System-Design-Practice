@@ -103,7 +103,7 @@ using namespace std;
 
 //                  Database
 //
-//                      ▲
+//                      ^
 //
 //        --------------------------
 //
@@ -296,7 +296,7 @@ Saving data in PostgreSQL
 // Where is DIP Used?
 // ==========================================================
 
-// ✔ Database Layer
+// OK: Database Layer
 //
 // MySQL
 //
@@ -306,7 +306,7 @@ Saving data in PostgreSQL
 
 // ----------------------------------------------------------
 
-// ✔ Payment Gateway
+// OK: Payment Gateway
 //
 // UPI
 //
@@ -316,7 +316,7 @@ Saving data in PostgreSQL
 
 // ----------------------------------------------------------
 
-// ✔ Notification
+// OK: Notification
 //
 // Email
 //
@@ -326,7 +326,7 @@ Saving data in PostgreSQL
 
 // ----------------------------------------------------------
 
-// ✔ Logger
+// OK: Logger
 //
 // Console Logger
 //
@@ -336,7 +336,7 @@ Saving data in PostgreSQL
 
 // ----------------------------------------------------------
 
-// ✔ Authentication
+// OK: Authentication
 //
 // Google
 //
@@ -346,7 +346,7 @@ Saving data in PostgreSQL
 
 // ----------------------------------------------------------
 
-// ✔ Storage
+// OK: Storage
 //
 // AWS S3
 //

@@ -86,7 +86,7 @@ public:
         latestVideo = title;
 
         cout << "\n=====================================\n";
-        cout << "🎥 " << channelName << " uploaded: "
+        cout << "[Video] " << channelName << " uploaded: "
              << latestVideo << endl;
         cout << "=====================================\n";
 

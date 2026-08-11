@@ -29,9 +29,9 @@ using namespace std;
 //
 // Child classes should never:
 //
-// ❌ Throw unexpected exceptions
-// ❌ Remove parent functionality
-// ❌ Change expected behavior
+// BAD: Throw unexpected exceptions
+// BAD: Remove parent functionality
+// BAD: Change expected behavior
 
 // ==========================================================
 // Bad Example
@@ -243,7 +243,7 @@ Bird is eating.
 // Where is LSP Used?
 // ==========================================================
 
-// ✔ Payment Gateway
+// OK: Payment Gateway
 //
 // Payment
 // |
@@ -255,7 +255,7 @@ Bird is eating.
 
 // ----------------------------------------------------------
 
-// ✔ Vehicle System
+// OK: Vehicle System
 //
 // Vehicle
 // |
@@ -270,7 +270,7 @@ Bird is eating.
 
 // ----------------------------------------------------------
 
-// ✔ Notification System
+// OK: Notification System
 //
 // Notification
 // |
@@ -282,7 +282,7 @@ Bird is eating.
 
 // ----------------------------------------------------------
 
-// ✔ Authentication
+// OK: Authentication
 //
 // Login
 // |
@@ -294,7 +294,7 @@ Bird is eating.
 
 // ----------------------------------------------------------
 
-// ✔ Shape
+// OK: Shape
 //
 // Shape
 // |
@@ -308,22 +308,22 @@ Bird is eating.
 // Interview Keywords
 // ==========================================================
 
-// ✔ IS-A Relationship
-// ✔ Substitutability
-// ✔ Runtime Polymorphism
-// ✔ Correct Behavior
-// ✔ Inheritance
-// ✔ Parent-Child Relationship
+// OK: IS-A Relationship
+// OK: Substitutability
+// OK: Runtime Polymorphism
+// OK: Correct Behavior
+// OK: Inheritance
+// OK: Parent-Child Relationship
 
 // ==========================================================
 // Common Mistakes
 // ==========================================================
 
-// ❌ Child removes functionality.
+// BAD: Child removes functionality.
 //
-// ❌ Child throws unexpected exception.
+// BAD: Child throws unexpected exception.
 //
-// ❌ Child changes expected behavior.
+// BAD: Child changes expected behavior.
 //
 // If Parent* points to Child,
 // code should still work correctly.

@@ -45,25 +45,25 @@ using namespace std;
 
 // Complex code causes:
 //
-// ❌ More Bugs
+// BAD: More Bugs
 //
-// ❌ Difficult Debugging
+// BAD: Difficult Debugging
 //
-// ❌ Difficult Maintenance
+// BAD: Difficult Maintenance
 //
-// ❌ Difficult Testing
+// BAD: Difficult Testing
 //
-// ❌ Difficult Understanding
+// BAD: Difficult Understanding
 //
 // Simple code gives:
 //
-// ✔ Better Readability
+// OK: Better Readability
 //
-// ✔ Better Maintainability
+// OK: Better Maintainability
 //
-// ✔ Easy Testing
+// OK: Easy Testing
 //
-// ✔ Easy Debugging
+// OK: Easy Debugging
 
 // ==========================================================
 // BAD DESIGN
@@ -275,51 +275,51 @@ Adult : 1
 // Where is KISS Used?
 // ==========================================================
 
-// ✔ Function Design
+// OK: Function Design
 //
-// ✔ Class Design
+// OK: Class Design
 //
-// ✔ API Design
+// OK: API Design
 //
-// ✔ LLD
+// OK: LLD
 //
-// ✔ System Design
+// OK: System Design
 //
-// ✔ Database Queries
+// OK: Database Queries
 //
-// ✔ Algorithms
+// OK: Algorithms
 //
-// ✔ UI Design
+// OK: UI Design
 
 // ==========================================================
 // Advantages
 // ==========================================================
 
-// ✔ Easy to Read
+// OK: Easy to Read
 //
-// ✔ Easy to Understand
+// OK: Easy to Understand
 //
-// ✔ Easy to Maintain
+// OK: Easy to Maintain
 //
-// ✔ Easy to Debug
+// OK: Easy to Debug
 //
-// ✔ Easy to Test
+// OK: Easy to Test
 //
-// ✔ Less Bugs
+// OK: Less Bugs
 
 // ==========================================================
 // Common Mistakes
 // ==========================================================
 
-// ❌ Over Engineering
+// BAD: Over Engineering
 //
-// ❌ Unnecessary Design Patterns
+// BAD: Unnecessary Design Patterns
 //
-// ❌ Huge Classes
+// BAD: Huge Classes
 //
-// ❌ Huge Functions
+// BAD: Huge Functions
 //
-// ❌ Clever but Confusing Code
+// BAD: Clever but Confusing Code
 
 // ==========================================================
 // Interview Questions
