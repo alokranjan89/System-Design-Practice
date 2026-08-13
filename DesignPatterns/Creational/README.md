@@ -1,117 +1,189 @@
 # Creational Design Patterns
 
-This folder contains creational design pattern examples and one central guide.
-All information about these patterns is kept in this single `README.md`.
+## What does design mean?
 
-## Folder Structure
+Design is the planning of how software components will be built, structured, and connected. Good design makes the system easier to understand, maintain, and extend. In software, design is not only about writing code; it is about choosing the right structure before implementation.
 
-- `FactoryPatterns/`
-  - `simple_factory.cpp`
-  - `factory_method.cpp`
-  - `abstract_factory.cpp`
-- `Prototype/`
-  - `prototype.cpp`
-- `Singleton/`
-  - `singleton.cpp`
+We use design when we want to:
 
-## What This Folder Shows
+- reduce complexity
+- avoid code duplication
+- keep responsibilities clear
+- make future changes easier
+- create reusable and testable code
 
-Creational patterns are about how objects are created. These examples demonstrate:
+## What are creational design patterns?
 
-- `Simple Factory` - a single place decides which object to create.
-- `Factory Method` - subclasses decide which concrete object to instantiate.
-- `Abstract Factory` - create families of related objects without specifying concrete classes.
-- `Prototype` - create objects by cloning an existing object.
-- `Singleton` - ensure only one shared instance exists.
+Creational design patterns focus on how objects are created. They help manage object creation logic so that code does not become tightly coupled to specific classes or repetitive across the project.
 
-## Pattern Summaries
+These patterns are useful when:
+
+- object creation is complex
+- we want to centralize creation logic
+- we need many objects with similar setup
+- we want to hide construction details
+- we need only one shared object or cloneable object instances
+
+## This folder includes
+
+- `FactoryPatterns/` - object creation through factories
+- `Prototype/` - object cloning
+- `Singleton/` - single-instance creation control
+- `Builder/` - step-by-step construction of complex objects
+
+## Problem these patterns solve
+
+Without proper object creation design, code becomes messy because:
+
+- object creation logic is repeated everywhere
+- client code depends directly on concrete classes
+- new object types require changing many places
+- constructing complex objects becomes hard to read
+- global state and duplicate instances may appear accidentally
+
+## Important notes
+
+- Creational patterns help control the creation process of objects.
+- They reduce direct dependency on concrete classes.
+- They improve code flexibility and maintainability.
+- They can hide creation decisions behind a simpler interface.
+- The right pattern depends on the problem: create a new object, decide based on type, clone an existing object, or enforce one instance.
+
+## Pattern summaries
 
 ### Simple Factory
-- Centralizes object creation in one place.
-- The client asks a factory for an object by type or configuration.
-- Good when you have a small number of concrete classes and want to avoid `new` scattered across code.
-- Example in `FactoryPatterns/simple_factory.cpp`.
 
-**Important Notes:**
-- Not a formal GOF pattern, but very useful in practice.
-- This pattern still exposes a single factory method, so avoid putting business logic inside it.
-- Use it when object creation rules are simple and likely to change.
+Simple Factory is a way to centralize object creation in one class or method. The client asks the factory for an object instead of creating it manually.
+
+**Key idea:** one place decides which concrete class to create.
+
+**When to use:**
+- when object creation is repetitive
+- when the choice is based on simple conditions
+- when you want to avoid scattered `new` operations
+
+**Important notes:**
+- easy to understand and implement
+- not as flexible as Factory Method
+- useful for small systems where creation logic is straightforward
 
 ### Factory Method
-- Defines an interface for creating objects, with subclasses deciding which product to create.
-- Use when a class cannot anticipate the exact type of object it must create.
-- Example in `FactoryPatterns/factory_method.cpp`.
 
-**Important Notes:**
-- The client works with the factory interface, not concrete classes.
-- This pattern adds a layer of indirection, so use it when extension is expected.
-- It is ideal when each product type requires a separate creation process.
+Factory Method defines an interface for creating an object, while subclasses decide which concrete object will be created.
+
+**Key idea:** object creation is delegated to subclasses.
+
+**When to use:**
+- when a class cannot know which object it must create
+- when new product types may be added later
+- when creation logic should be extended without changing the main code
+
+**Important notes:**
+- improves extensibility
+- good for open/closed design
+- introduces more abstraction than a simple factory
 
 ### Abstract Factory
-- Provides an interface for creating families of related objects.
-- Useful when products should be used together and come from the same variant.
-- Example in `FactoryPatterns/abstract_factory.cpp`.
 
-**Important Notes:**
-- Use when objects must come from the same family, such as UI widgets for one platform.
-- Keep the factory interface stable, and let concrete factories implement the details.
-- Avoid overusing this pattern for unrelated object creation.
+Abstract Factory creates families of related objects without exposing their concrete classes.
 
-### Singleton
-- Ensures a class has only one instance and provides a global access point.
-- Use carefully, because singletons can introduce hidden global state.
-- Example in `Singleton/singleton.cpp`.
+**Key idea:** different factories create related objects consistent with a common theme.
 
-**Important Notes:**
-- Singletons are not just "global variables in disguise"; they control instance creation.
-- Ensure thread safety when you use lazy initialization in C++.
-- Prefer dependency injection if the singleton behavior is only needed for testing convenience.
+**When to use:**
+- when objects belong to the same product family
+- when UI or platform-specific variants must be created together
+- when multiple related products must stay consistent
+
+**Important notes:**
+- more powerful than a basic factory
+- good for product families
+- can be too heavy for simple systems
+
+### Builder
+
+Builder separates complex object construction from the final object representation. It is useful when an object has many optional fields or many configuration steps.
+
+**Key idea:** build the object step by step instead of using a giant constructor.
+
+**When to use:**
+- many optional parameters
+- large configuration objects
+- readable fluent object creation
+
+**Important notes:**
+- keeps object creation readable
+- improves maintainability
+- avoids constructor explosion
 
 ### Prototype
-- Creates new objects by copying an existing object.
-- Useful when object construction is expensive or when many objects share the same starting state.
-- Example in `Prototype/prototype.cpp`.
 
-**Important Notes:**
-- Decide whether each clone should use shallow copy or deep copy.
-- Avoid sharing mutable internal state accidentally.
-- Prefer smart pointers in larger projects to manage cloned object ownership safely.
+Prototype creates new objects by copying an existing object instead of constructing a full new instance from scratch.
 
-## When to Use Each Pattern
+**Key idea:** cloning a configured object is faster and easier than rebuilding it.
 
-- **Simple Factory**: when you want one place to create similar objects and reduce `new` usage.
-- **Factory Method**: when the class cannot know exactly which concrete object will be needed.
-- **Abstract Factory**: when you need to create matching objects from the same product family.
-- **Prototype**: when cloning an existing configured object is easier than building from scratch.
-- **Singleton**: when a single shared instance should be used globally.
+**When to use:**
+- object creation is expensive
+- many objects share the same initial setup
+- runtime object creation depends on an existing instance
 
-## How to Run the Examples
+**Important notes:**
+- shallow vs deep copy matters
+- useful for cloning complex objects
+- must be careful about shared mutable references
+
+### Singleton
+
+Singleton ensures that only one instance of a class exists and gives a global access point to it.
+
+**Key idea:** one shared instance throughout the application.
+
+**When to use:**
+- configuration manager
+- logging service
+- database connection manager
+- shared global resource
+
+**Important notes:**
+- introduces global state
+- must be used carefully
+- not always the best choice for testability
+
+## Advantages of creational patterns
+
+- cleaner object creation logic
+- better separation of concerns
+- easier maintenance and extension
+- reduces code duplication
+- better control over object lifetime and initialization
+
+## Disadvantages
+
+- extra classes and abstraction can add complexity
+- some patterns are overkill for small applications
+- misuse can create hidden global state or poor design decisions
+
+## How to run the examples
 
 Compile and run one example at a time.
 
-Example:
 ```powershell
 cd "System Design\DesignPatterns\Creational\FactoryPatterns"
-g++ -std=c++17 -Wall simple_factory.cpp -o simple_factory.exe
+g++ -std=c++17 -Wall -Wextra simple_factory.cpp -o simple_factory.exe
 ./simple_factory.exe
 ```
 
-For Singleton:
 ```powershell
 cd "System Design\DesignPatterns\Creational\Singleton"
-g++ -std=c++17 -Wall singleton.cpp -o singleton.exe
+g++ -std=c++17 -Wall -Wextra singleton.cpp -o singleton.exe
 ./singleton.exe
 ```
 
-For Prototype:
 ```powershell
 cd "System Design\DesignPatterns\Creational\Prototype"
-g++ -std=c++17 -Wall prototype.cpp -o prototype.exe
+g++ -std=c++17 -Wall -Wextra prototype.cpp -o prototype.exe
 ./prototype.exe
 ```
 
-## Notes
+## Simple summary
 
-- Use the source files in each subfolder to study one pattern at a time.
-- Subfolder READMEs contain extra notes for specific examples.
-- Keep generated `.exe` files out of Git.
+Creational patterns are about how objects are created in a clean, controlled, and maintainable way. They help us choose the right creation strategy depending on the problem: one instance, multiple related objects, cloning, or step-by-step construction.

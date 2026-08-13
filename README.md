@@ -72,3 +72,61 @@ g++ -std=c++17 -Wall -Wextra file_name.cpp -o file_name.exe
 ## Notes
 
 This repository is a learning workspace. The examples are kept small so they are easy to study and extend later.
+
+## Best way to learn from this repo
+
+This repo is best used as a foundation for building design understanding, not as a complete system design course on its own.
+
+### Recommended learning order
+
+1. Start with OOP basics
+   - classes, objects, inheritance, abstraction, encapsulation, polymorphism
+2. Study design principles
+   - SOLID, DRY, KISS, YAGNI
+3. Learn design patterns
+   - start with creational patterns
+   - then move to behavioral patterns
+4. Practice the small examples
+   - compile and run them one by one
+   - understand each class and responsibility
+5. Move to LLD problem-solving
+   - think about classes, interfaces, and interactions
+6. Then move to system design topics
+   - scalability, databases, caching, queues, APIs, load balancing
+
+### What this repo is good for
+
+- learning pattern concepts
+- understanding low-level design ideas
+- practicing class relationships and responsibilities
+- reviewing simple examples in C++
+
+### What this repo is not enough for
+
+- full distributed system design
+- real-world production architecture decisions
+- large-scale scalability questions
+- deep interview-level system design discussions
+
+### Beginner advice
+
+Do not try to memorize patterns only. Focus on understanding:
+
+- what problem the pattern solves
+- why it is used
+- when it should be used
+- what the trade-offs are
+
+If you understand the reasoning behind the design, learning becomes much easier.
+
+## Suggested revision method
+
+When you study a pattern, ask these 5 questions:
+
+- What is the problem?
+- What is the main idea?
+- What are the key components?
+- When do we use it?
+- What are the advantages and disadvantages?
+
+This method makes the notes easier to revise and remember.

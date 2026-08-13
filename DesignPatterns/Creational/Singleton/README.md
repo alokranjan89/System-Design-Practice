@@ -1,114 +1,150 @@
 # Singleton Design Pattern
 
-The Singleton pattern ensures that a class has only one object and provides a common access point to that object.
+## What does design mean?
 
-## Current example
+Design is the process of creating a clear structure for a system so that it is easier to maintain and reason about. In software, design decides how objects are created, shared, and accessed.
 
-`singleton.cpp` uses eager initialization with a static pointer.
+We use design when we need to:
 
-## Method 1: Eager initialization
+- manage shared resources
+- control repeated object creation
+- keep access points clear and consistent
+- reduce accidental duplication
+- build stable application-wide configuration
 
-### Steps
+## What is the Singleton pattern?
 
-1. Make the constructor private.
-2. Create one static pointer inside the class.
-3. Initialize the object before `main()` starts.
-4. Return the same object from `getInstance()`.
-5. Compare two returned pointers to prove both point to the same object.
+The Singleton pattern ensures that a class has only one instance in the entire application and gives a single global access point to it.
 
-### Code idea
+It is useful when a system needs one common object that is shared across multiple components.
+
+## Problem it solves
+
+Without Singleton, a class may be instantiated multiple times, causing repeated objects that do not share the same state. This can lead to:
+
+- duplicate resources
+- inconsistent configuration
+- wasted memory
+- hard-to-manage shared state
+
+## Key idea
+
+The constructor is made private, and a static method returns the same instance every time.
+
+This guarantees that only one object is created and reused throughout the application.
+
+## Important notes
+
+- only one instance is allowed
+- global access is provided through a static method
+- it is good for shared services like configuration or logging
+- it can introduce hidden global state
+- it should be used carefully in large systems
+- testability can become harder if it is used too much
+
+## When to use
+
+Use Singleton when:
+
+- one shared object is required across the app
+- a configuration object must be consistent everywhere
+- a resource manager is meant to be shared
+- object initialization should happen only once
+
+## Advantages
+
+- ensures one shared instance
+- easy to access globally
+- avoids unnecessary duplicate objects
+- useful for shared system resources
+
+## Disadvantages
+
+- global state can make debugging harder
+- can reduce code flexibility
+- may hurt testability
+- overuse can create hidden dependencies
+
+## Common real-world examples
+
+- application configuration manager
+- logging service
+- database connection manager
+- cache manager
+
+## In this folder
+
+`singleton.cpp` demonstrates how a class can be restricted to one instance with a global access method.
+
+## Eager initialization example
+
+This version creates the object at startup.
 
 ```cpp
-class Singleton
-{
+class Singleton {
 private:
-    static Singleton *instance;
-
+    static Singleton* instance;
     Singleton() {}
 
 public:
-    static Singleton *getInstance()
-    {
+    static Singleton* getInstance() {
         return instance;
     }
 };
 
-Singleton *Singleton::instance = new Singleton();
+Singleton* Singleton::instance = new Singleton();
 ```
 
 ### Advantages
 
-- Simple to understand.
-- No mutex is required.
-- Object is ready before first use.
+- simple and easy to understand
+- object exists before first use
+- no lock is needed
 
 ### Disadvantages
 
-- Object is created even if it is never used.
-- Uses `new`, so cleanup must be considered in larger programs.
-- Startup can become heavier if construction is expensive.
+- object is created even if it is never used
+- may be wasteful for expensive resources
 
-## Method 2: Lazy initialization with mutex
+## Lazy initialization example
 
-### Steps
-
-1. Make the constructor private.
-2. Keep a static pointer initialized with `nullptr`.
-3. When `getInstance()` is called, check whether the object exists.
-4. Lock a mutex before creating the object.
-5. Check again after locking.
-6. Create the object only once.
-7. Return the same pointer every time.
-
-### Code idea
+This version creates the object only when it is needed.
 
 ```cpp
-class Singleton
-{
+class Singleton {
 private:
-    static Singleton *instance;
+    static Singleton* instance;
     static mutex mtx;
 
     Singleton() {}
 
 public:
-    static Singleton *getInstance()
-    {
-        if (instance == nullptr)
-        {
+    static Singleton* getInstance() {
+        if (instance == nullptr) {
             lock_guard<mutex> lock(mtx);
-
-            if (instance == nullptr)
-            {
+            if (instance == nullptr) {
                 instance = new Singleton();
             }
         }
-
         return instance;
     }
 };
-
-Singleton *Singleton::instance = nullptr;
-mutex Singleton::mtx;
 ```
 
 ### Advantages
 
-- Object is created only when needed.
-- Mutex protects object creation in multithreaded code.
-- Useful when object construction is expensive.
+- object is created only when needed
+- better for expensive initialization
+- useful in multithreaded code
 
 ### Disadvantages
 
-- More complex than eager initialization.
-- Uses `new`, so cleanup must be handled carefully.
-- Incorrect locking can cause thread-safety bugs.
+- more complex than eager initialization
+- thread-safety has to be managed carefully
 
-## Important notes
+## Best practice note
 
-- Singletons introduce global state, so use them carefully.
-- Prefer dependency injection when testability is important.
-- In modern C++, a function-local static object is often the simplest thread-safe Singleton approach.
+In modern C++, a function-local static variable is often the simplest and safest way to implement a Singleton. It is easier to manage and avoids manual memory cleanup in many cases.
 
 ## How to run
 
@@ -117,3 +153,7 @@ cd "System Design\DesignPatterns\Creational\Singleton"
 g++ -std=c++17 -Wall -Wextra singleton.cpp -o singleton.exe
 ./singleton.exe
 ```
+
+## Simple summary
+
+The Singleton pattern is used when exactly one shared instance should exist throughout the application. It helps enforce consistency and avoid unnecessary duplication, but it should be used carefully because it introduces global state.

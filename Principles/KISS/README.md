@@ -1,28 +1,66 @@
 # KISS Principle
 
-KISS means "Keep It Simple, Stupid."
+## What does design mean?
 
-## Meaning
+Design is the process of organizing code and system structure so it is understandable, maintainable, and effective. Good design does not mean adding unnecessary complexity.
 
-Design and implement the simplest solution that satisfies the current requirement.
+We use design to:
 
-## What this example shows
+- keep solutions understandable
+- reduce risk of bugs
+- improve maintainability
+- avoid overengineering
 
-- Simple code is easier to read.
-- Simple code is easier to debug.
-- Extra features should not be added unless they are needed.
+## What is the KISS principle?
+
+KISS stands for "Keep It Simple, Stupid."
+
+It means that we should prefer the simplest solution that solves the problem correctly, instead of adding unnecessary complexity.
+
+## Problem it solves
+
+When developers add too many features, abstractions, or unnecessary patterns, the system becomes harder to read, debug, and maintain. The code may work, but it becomes fragile and expensive to change.
+
+## Key idea
+
+Solve the current problem directly and clearly. Avoid adding advanced design, extra layers, or complicated logic unless they are truly needed.
+
+## Important notes
+
+- Simpler code is usually easier to read.
+- Simpler code is easier to test and debug.
+- A good design is not necessarily the most complicated design.
+- Overengineering often causes more maintenance cost than value.
+- Simplicity should help the solution, not reduce its correctness.
+
+## When to use
+
+Use KISS when:
+
+- the requirement is straightforward
+- the cost of complexity is higher than the value
+- you want maintainable code without unnecessary abstraction
 
 ## Advantages
 
-- Easier maintenance.
-- Easier testing.
-- Fewer unnecessary moving parts.
-- Faster understanding for new developers.
+- easier to read and understand
+- easier to test and debug
+- faster onboarding for new developers
+- lower maintenance cost
+- fewer hidden issues
 
 ## Disadvantages
 
-- A very simple design may need changes when requirements grow.
-- It requires judgment to know what is simple versus incomplete.
+- too much simplicity may require refactoring later if the system grows
+- requires judgment to decide what is truly simple and what is incomplete
+
+## Real-world example
+
+A simple function that validates user input is better than a large framework or overengineered validation system if the requirement is small and direct.
+
+## In this folder
+
+`kiss.cpp` demonstrates a simple implementation approach without unnecessary complexity.
 
 ## How to run
 
@@ -31,3 +69,7 @@ cd "System Design\Principles\KISS"
 g++ -std=c++17 -Wall -Wextra kiss.cpp -o kiss.exe
 ./kiss.exe
 ```
+
+## Simple summary
+
+KISS reminds us that the best solution is usually the simplest one that works. Simplicity improves readability, maintainability, and long-term quality.
