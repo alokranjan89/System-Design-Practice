@@ -24,12 +24,19 @@ These patterns are useful when:
 - we want to hide construction details
 - we need only one shared object or cloneable object instances
 
+## Recommended order
+
+1. [Factory Patterns](FactoryPatterns/README.md)
+2. [Builder](Builder/README.md)
+3. [Prototype](Prototype/README.md)
+4. [Singleton](Singleton/README.md)
+
 ## This folder includes
 
-- `FactoryPatterns/` - object creation through factories
-- `Prototype/` - object cloning
-- `Singleton/` - single-instance creation control
-- `Builder/` - step-by-step construction of complex objects
+- [FactoryPatterns](FactoryPatterns/README.md) - object creation through factories
+- [Builder](Builder/README.md) - step-by-step construction of complex objects
+- [Prototype](Prototype/README.md) - object cloning
+- [Singleton](Singleton/README.md) - single-instance creation control
 
 ## Problem these patterns solve
 
@@ -170,6 +177,18 @@ Compile and run one example at a time.
 cd "System Design\DesignPatterns\Creational\FactoryPatterns"
 g++ -std=c++17 -Wall -Wextra simple_factory.cpp -o simple_factory.exe
 ./simple_factory.exe
+```
+
+```powershell
+cd "System Design\DesignPatterns\Creational\FactoryPatterns"
+g++ -std=c++17 -Wall -Wextra factory_method.cpp -o factory_method.exe
+./factory_method.exe
+```
+
+```powershell
+cd "System Design\DesignPatterns\Creational\FactoryPatterns"
+g++ -std=c++17 -Wall -Wextra abstract_factory.cpp -o abstract_factory.exe
+./abstract_factory.exe
 ```
 
 ```powershell

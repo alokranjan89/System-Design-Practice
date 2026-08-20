@@ -1,132 +1,106 @@
 # System Design and LLD Practice
 
-This repository is a study collection for **Low Level Design (LLD)** and **System Design** concepts implemented in C++.
+This repository is a beginner-friendly study workspace for **Low Level Design (LLD)**, **object-oriented design principles**, and **design patterns** using C++.
 
-The repository is organized by pattern family and example type so related files stay grouped together.
+The goal is simple: a new learner should be able to open the repo, know where to start, compile examples, and revise concepts without guessing.
+
+## Start Here
+
+Follow this order if you are new:
+
+1. Learn OOP basics first: class, object, inheritance, abstraction, encapsulation, and polymorphism.
+2. Study [Principles](Principles/README.md): SOLID, DRY, KISS, and YAGNI.
+3. Study [Design Patterns](DesignPatterns/README.md): reusable solutions for common design problems.
+4. Practice [Examples](Examples/README.md): small LLD-style systems.
+5. Revise each topic using the README inside its folder.
 
 ## Repository Structure
 
 ```text
 System Design/
-+-- DesignPatterns/
-|   +-- Creational/
-|   |   +-- Builder/
-|   |   +-- FactoryPatterns/
-|   |   +-- Prototype/
-|   |   +-- Singleton/
-|   +-- Behavioral/
-|       +-- ObserverDesignPattern/
-|       +-- StrategyDesignPattern/
-+-- Principles/
-|   +-- SOLID/
-|   +-- DRY/
-|   +-- KISS/
-|   +-- YAGNI/
-+-- Examples/
-|   +-- AnimalManagement/
-|   +-- AtmCard/
-|   +-- BankManagement/
-|   +-- EmployeeManagement/
-|   +-- HospitalManagement/
-|   +-- LibraryManagement/
-|   +-- VehicleManagement/
-+-- README.md
-+-- .gitignore
+|-- DesignPatterns/
+|   |-- README.md
+|   |-- Creational/
+|   |   |-- README.md
+|   |   |-- Builder/
+|   |   |-- FactoryPatterns/
+|   |   |-- Prototype/
+|   |   `-- Singleton/
+|   `-- Behavioral/
+|       |-- README.md
+|       |-- command-design-pattern/
+|       |-- Iterator-design-pattern/
+|       |-- ObserverDesignPattern/
+|       `-- StrategyDesignPattern/
+|-- Principles/
+|   |-- README.md
+|   |-- SOLID/
+|   |-- DRY/
+|   |-- KISS/
+|   `-- YAGNI/
+|-- Examples/
+|   |-- README.md
+|   |-- AnimalManagement/
+|   |-- AtmCard/
+|   |-- BankManagement/
+|   |-- EmployeeManagement/
+|   |-- HospitalManagement/
+|   |-- LibraryManagement/
+|   |-- ParkingLot/
+|   `-- VehicleManagement/
+|-- README.md
+`-- .gitignore
 ```
 
-## Current Examples
+## How to Compile and Run
 
-- `DesignPatterns/Creational/` - creational design pattern examples and object creation strategies
-- `DesignPatterns/Behavioral/` - behavioral design pattern examples
-- `Principles/` - single-responsibility, DRY, KISS, YAGNI, and SOLID principle demos
-- `Examples/` - general system design examples for animals, banking, library, and vehicles
-
-## How to Use
-
-1. Open a folder in your C++ IDE or terminal.
-2. Compile the `.cpp` file in that folder with a C++ compiler.
-3. Run the generated executable.
-
-Example with `g++`:
+Compile one file at a time.
 
 ```powershell
-cd "System Design\Examples\BankManagement"
+cd "C:\Users\Asus\OneDrive\Desktop\System Design\Examples\BankManagement"
 g++ -std=c++17 -Wall -Wextra bank_management.cpp -o bank_management.exe
 ./bank_management.exe
 ```
 
-To compile any other example, move into its folder and replace the file name:
+For any other file:
 
 ```powershell
 g++ -std=c++17 -Wall -Wextra file_name.cpp -o file_name.exe
 ./file_name.exe
 ```
 
-## Goals
+Generated `.exe`, `.out`, `.obj`, and `.o` files should not be committed.
 
-- Keep each problem in its own folder
-- Include short notes for each example
-- Use clear and consistent file names
-- Avoid storing compiled binaries in Git
+## Learning Method
 
-## Notes
+For every principle, pattern, or example, ask:
 
-This repository is a learning workspace. The examples are kept small so they are easy to study and extend later.
-
-## Best way to learn from this repo
-
-This repo is best used as a foundation for building design understanding, not as a complete system design course on its own.
-
-### Recommended learning order
-
-1. Start with OOP basics
-   - classes, objects, inheritance, abstraction, encapsulation, polymorphism
-2. Study design principles
-   - SOLID, DRY, KISS, YAGNI
-3. Learn design patterns
-   - start with creational patterns
-   - then move to behavioral patterns
-4. Practice the small examples
-   - compile and run them one by one
-   - understand each class and responsibility
-5. Move to LLD problem-solving
-   - think about classes, interfaces, and interactions
-6. Then move to system design topics
-   - scalability, databases, caching, queues, APIs, load balancing
-
-### What this repo is good for
-
-- learning pattern concepts
-- understanding low-level design ideas
-- practicing class relationships and responsibilities
-- reviewing simple examples in C++
-
-### What this repo is not enough for
-
-- full distributed system design
-- real-world production architecture decisions
-- large-scale scalability questions
-- deep interview-level system design discussions
-
-### Beginner advice
-
-Do not try to memorize patterns only. Focus on understanding:
-
-- what problem the pattern solves
-- why it is used
-- when it should be used
-- what the trade-offs are
-
-If you understand the reasoning behind the design, learning becomes much easier.
-
-## Suggested revision method
-
-When you study a pattern, ask these 5 questions:
-
-- What is the problem?
+- What problem does it solve?
 - What is the main idea?
-- What are the key components?
-- When do we use it?
-- What are the advantages and disadvantages?
+- What are the important classes?
+- How do the classes interact?
+- When should I use it?
+- What are the trade-offs?
 
-This method makes the notes easier to revise and remember.
+## What This Repo Is Good For
+
+- learning LLD fundamentals
+- understanding class responsibilities
+- revising design patterns
+- practicing small C++ examples
+- preparing for object-oriented design interviews
+
+## What This Repo Is Not
+
+This is not a complete high-level distributed system design course. For large-scale system design, you also need topics like APIs, databases, caching, queues, load balancing, consistency, scaling, and monitoring.
+
+## Recommended Daily Practice
+
+1. Pick one folder.
+2. Read the README first.
+3. Read the `.cpp` file slowly.
+4. Compile and run it.
+5. Change one small part.
+6. Explain the design in your own words.
+
+That last step matters most. If you can explain why the classes exist, you are learning design instead of memorizing code.

@@ -1,134 +1,97 @@
 # Factory Patterns
 
-## What does design mean?
+Factory patterns are creational patterns that move object creation logic away from client code.
 
-Design is the planning of how classes and objects should interact to keep the system flexible and maintainable. In software, good design helps organize logic so the code becomes easier to extend and less dependent on details.
+Instead of writing `new Car()` or `new Bike()` everywhere, the client asks a factory to create the correct object.
 
-We use design when we want to:
+## Recommended Order
 
-- reduce coupling
-- separate responsibility from object creation
-- make code easier to extend
-- avoid repeated `new` logic in many places
-- keep the client code cleaner
+1. [simple_factory.cpp](simple_factory.cpp)
+2. [factory_method.cpp](factory_method.cpp)
+3. [abstract_factory.cpp](abstract_factory.cpp)
+4. [FACTORY_METHOD_QUICK_REFERENCE.md](FACTORY_METHOD_QUICK_REFERENCE.md)
 
-## What are factory patterns?
+## Why Factories Are Useful
 
-Factory patterns are used to create objects without exposing the logic of how they are constructed. Instead of directly creating concrete classes, the client works through a factory.
+Factories help when:
 
-This helps when the creation logic may change over time or when different object types need to be created based on conditions.
+- object creation has conditions
+- client code should not depend directly on concrete classes
+- many related object types exist
+- object creation may change later
+- you want cleaner and more maintainable code
 
-## Problem it solves
+## Simple Factory
 
-If object creation is written directly in many places, the code becomes difficult to maintain. Every time a new product type is introduced, multiple places may need to be changed.
+**File:** [simple_factory.cpp](simple_factory.cpp)
 
-This creates:
+Simple Factory keeps all creation logic in one factory method.
 
-- repeated creation logic
-- tight coupling to concrete classes
-- difficult maintenance when product types grow
-- code that is harder to extend without breaking others
+Use it when:
 
-## Key idea
-
-Instead of the client creating objects directly, a factory decides which object to instantiate. The client only asks for the object and works with the common interface.
-
-## Important notes
-
-- Factory patterns hide construction details.
-- Client code depends on abstraction, not concrete classes.
-- They improve flexibility and scalability.
-- They are useful when object creation rules may vary.
-- The right type of factory depends on the complexity of the problem.
-
-## Types in this folder
-
-### Simple Factory
-
-Simple Factory has one factory method that decides which object to create.
-
-**Use it when:**
+- the project is small
+- there are only a few object types
 - creation logic is simple
-- you want one central place to manage object creation
-- the system is not too complex
 
-**Advantages:**
-- easy to understand
-- reduces scattered `new` statements
-- useful for small/medium systems
+Main trade-off:
 
-**Disadvantages:**
-- not as extensible as other factory patterns
-- can become a large conditional block if too many types are added
+- easy to understand, but adding a new type usually means modifying the factory method
 
-### Factory Method
+## Factory Method
 
-Factory Method delegates object creation to subclasses.
+**File:** [factory_method.cpp](factory_method.cpp)
 
-**Use it when:**
-- a class cannot decide which concrete product to create
+Factory Method defines a common factory interface, then lets child factory classes decide which object to create.
+
+Use it when:
+
 - new product types may be added later
-- subclass logic should decide the object type
+- each product should have its own creation class
+- you want better Open/Closed Principle support
 
-**Advantages:**
-- better extension support
-- keeps creation logic in a separate layer
-- good for polymorphism
+Main trade-off:
 
-**Disadvantages:**
-- more classes and abstraction
-- can be more complex than a simple factory
+- more flexible than Simple Factory, but creates more classes
 
-### Abstract Factory
+## Abstract Factory
 
-Abstract Factory creates related objects as a family.
+**File:** [abstract_factory.cpp](abstract_factory.cpp)
 
-**Use it when:**
-- product objects must work together
-- there are multiple variants of a family
-- you need consistent object creation across a platform or theme
+Abstract Factory creates families of related objects.
 
-**Advantages:**
-- good for object families
-- supports consistent product sets
-- reduces incompatible combinations
+Example from this folder:
 
-**Disadvantages:**
-- more complex to design
-- can be overkill for simple programs
+- `WindowsFactory` creates Windows button and Windows checkbox
+- `MacFactory` creates Mac button and Mac checkbox
 
-## When to use
+Use it when:
 
-Use factory patterns when:
+- related objects must be created together
+- products belong to families or themes
+- the client should not know concrete product classes
 
-- object creation logic must be centralized
-- the client should not depend on concrete classes
-- different products may be created under different conditions
-- the system may expand with new product types later
+Main trade-off:
 
-## Real-world examples
+- powerful for product families, but heavier than the other factory styles
 
-- creating different payment methods in an app
-- generating different vehicle types based on user input
-- creating different UI themes for mobile or desktop apps
-- manufacturing different product families based on region or configuration
+## Quick Comparison
 
-## In this folder
+| Pattern | Main Idea | Best For |
+|---|---|---|
+| Simple Factory | One factory method chooses the object | Small/simple creation logic |
+| Factory Method | One factory class per product type | Extensible product creation |
+| Abstract Factory | One factory creates a family of products | Related product families |
 
-- `simple_factory.cpp` uses one factory to create a product
-- `factory_method.cpp` uses subclass-level creation decisions
-- `abstract_factory.cpp` creates consistent related objects
-
-## How to run
+## How To Run
 
 ```powershell
-cd "System Design\DesignPatterns\Creational\FactoryPatterns"
+cd "C:\Users\Asus\OneDrive\Desktop\System Design\DesignPatterns\Creational\FactoryPatterns"
 g++ -std=c++17 -Wall -Wextra simple_factory.cpp -o simple_factory.exe
 ./simple_factory.exe
 ```
 
-Compile `factory_method.cpp` or `abstract_factory.cpp` in the same folder using the same command pattern.
+Replace `simple_factory.cpp` with `factory_method.cpp` or `abstract_factory.cpp` to run the other examples.
 
-## Simple summary
+## Simple Summary
 
-Factory patterns help create objects without letting the client know the exact class being created. They make the code cleaner, easier to extend, and less dependent on concrete implementations.
+Use factories when you want client code to ask for objects instead of directly creating concrete classes. Start with Simple Factory, then learn Factory Method, then Abstract Factory.
