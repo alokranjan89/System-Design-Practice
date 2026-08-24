@@ -91,6 +91,31 @@ Use the Strategy pattern when:
 - selecting sorting strategy for different data sizes
 - applying different compression algorithms based on file type
 
+## Easy Notes For Revision
+
+**Simple idea:** put each behavior in a separate class and switch between them at runtime.
+
+**Example:** `PaymentService` can use `CreditCardPayment`, `UpiPayment`, or `PayPalPayment` without changing its own code.
+
+**Where to use:**
+- when there are multiple ways to perform the same task
+- when behavior must change at runtime
+- when code has too many `if-else` conditions for different algorithms
+- when new behavior should be added without changing the main class
+
+**Advantages:**
+- removes large conditional logic
+- makes behavior easy to extend
+- keeps each algorithm in its own class
+- supports runtime switching
+
+**Disadvantages:**
+- adds more classes
+- client code must choose the correct strategy
+- can be overkill if there are only one or two simple behaviors
+
+**Interview explanation:** Strategy defines a family of interchangeable behaviors and lets the context use one of them through a common interface. It helps replace condition-heavy code with clean runtime behavior selection.
+
 ## In this folder
 
 - `payment.cpp` uses different payment strategies behind a shared interface.

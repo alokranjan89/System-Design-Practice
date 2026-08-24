@@ -66,6 +66,31 @@ Use Prototype when:
 - duplicating template documents or settings
 - creating many similar objects in game development
 
+## Easy Notes For Revision
+
+**Simple idea:** create a new object by copying an existing object.
+
+**Example:** create one configured `Document` object, then clone it whenever a new similar document is needed.
+
+**Where to use:**
+- when object creation is expensive
+- when many objects have the same initial setup
+- when runtime configuration should be copied
+- when creating from scratch repeats too much setup logic
+
+**Advantages:**
+- avoids repeated initialization
+- can be faster than creating from scratch
+- makes it easy to create similar objects
+- useful when exact object type is known only at runtime
+
+**Disadvantages:**
+- cloning logic can be tricky
+- deep copy vs shallow copy must be handled carefully
+- copied objects may accidentally share mutable data
+
+**Interview explanation:** Prototype creates objects by cloning existing instances. It is useful when creating a fresh object is costly or when many objects share a similar starting state.
+
 ## In this folder
 
 The `prototype.cpp` example demonstrates cloning an existing object to produce new ones.

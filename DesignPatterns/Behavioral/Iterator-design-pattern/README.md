@@ -59,6 +59,7 @@ Read in this order:
 2. [student.cpp](student.cpp) - iterator with student data
 3. [product.cpp](product.cpp) - iterator with product data
 4. [music.cpp](music.cpp) - iterator-style traversal in a playlist/music example
+5. [employee.cpp](employee.cpp) - iterator with employee objects
 
 ## When To Use
 
@@ -93,6 +94,31 @@ Use Iterator when:
 - file system traversal
 - playlists
 - menu item traversal
+
+## Easy Notes For Revision
+
+**Simple idea:** provide a common way to move through a collection one item at a time.
+
+**Example:** a `BookIterator` can traverse a `BookCollection` without exposing whether books are stored in a vector, list, or another structure.
+
+**Where to use:**
+- when client code should not know collection internals
+- when multiple collections need the same traversal style
+- when traversal logic should stay separate from business logic
+- when different traversal orders may be needed later
+
+**Advantages:**
+- hides internal collection structure
+- keeps traversal logic separate
+- makes client code simpler
+- supports different traversal styles
+
+**Disadvantages:**
+- adds extra iterator classes
+- can be unnecessary for very simple loops
+- collection changes during iteration can cause problems if not handled
+
+**Interview explanation:** Iterator lets client code access collection elements sequentially using methods such as `hasNext()` and `next()` without exposing how the collection is stored.
 
 ## Iterator vs Other Patterns
 
@@ -129,4 +155,4 @@ g++ -std=c++17 -Wall -Wextra iterator.cpp -o iterator.exe
 ./iterator.exe
 ```
 
-Replace `iterator.cpp` with `student.cpp`, `product.cpp`, or `music.cpp` to run the other examples.
+Replace `iterator.cpp` with `student.cpp`, `product.cpp`, `music.cpp`, or `employee.cpp` to run the other examples.

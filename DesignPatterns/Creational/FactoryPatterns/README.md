@@ -82,6 +82,72 @@ Main trade-off:
 | Factory Method | One factory class per product type | Extensible product creation |
 | Abstract Factory | One factory creates a family of products | Related product families |
 
+## Easy Notes For Revision
+
+### Simple Factory
+
+**Simple idea:** put object creation in one place.
+
+**Example:** a `VehicleFactory` receives `"car"` and returns a `Car` object.
+
+**Where to use:**
+- when object creation depends on a simple condition
+- when the project is small
+- when you want to avoid writing `new Car()`, `new Bike()`, or `new Truck()` everywhere
+
+**Advantages:**
+- simple to understand
+- keeps client code cleaner
+- centralizes object creation
+
+**Disadvantages:**
+- adding a new type requires changing the factory
+- can become a large `if-else` or `switch` block
+
+### Factory Method
+
+**Simple idea:** define a common factory method and let child factory classes create the object.
+
+**Example:** `CarFactory` creates `Car`, `BikeFactory` creates `Bike`, and client code works with a common factory interface.
+
+**Where to use:**
+- when new product types may be added later
+- when you want to follow the Open/Closed Principle
+- when each product has its own creation rules
+
+**Advantages:**
+- easier to extend than Simple Factory
+- client depends on abstractions
+- new products can be added with less change to existing code
+
+**Disadvantages:**
+- creates more classes
+- can feel heavy for very small programs
+
+### Abstract Factory
+
+**Simple idea:** create related objects that belong to the same family.
+
+**Example:** `WindowsFactory` creates Windows buttons and checkboxes, while `MacFactory` creates Mac buttons and checkboxes.
+
+**Where to use:**
+- when objects must be created as a consistent group
+- when the system supports themes, platforms, or product families
+- when client code should not know concrete classes
+
+**Advantages:**
+- keeps related objects consistent
+- hides concrete classes
+- good for platform-specific or theme-specific systems
+
+**Disadvantages:**
+- more complex than Simple Factory and Factory Method
+- adding a completely new product category can require changes in many factories
+
+## Interview Explanation
+
+Factory patterns move object creation away from client code. Simple Factory uses one method for basic creation, Factory Method lets subclasses decide what to create, and Abstract Factory creates families of related objects.
+
 ## How To Run
 
 ```powershell

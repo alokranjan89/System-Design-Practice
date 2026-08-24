@@ -81,9 +81,35 @@ Think about creating a computer configuration:
 
 Instead of passing all these values in one constructor, the builder assembles them one by one.
 
+## Easy Notes For Revision
+
+**Simple idea:** build a complex object step by step.
+
+**Example:** instead of calling a long constructor like `Computer(cpu, ram, ssd, gpu, wifi)`, use `ComputerBuilder().setCPU(...).setRAM(...).build()`.
+
+**Where to use:**
+- when a class has many optional fields
+- when constructor arguments become confusing
+- when object creation should be readable
+- when different configurations of the same object are common
+
+**Advantages:**
+- avoids long constructors
+- makes object creation readable
+- supports optional values clearly
+- keeps construction logic in one place
+
+**Disadvantages:**
+- adds extra builder code
+- can be unnecessary for small objects
+- invalid objects are possible if `build()` does not validate required fields
+
+**Interview explanation:** Builder separates the construction of a complex object from the object itself. It is useful when an object has many optional properties and should be created in a readable step-by-step way.
+
 ## In this folder
 
-The example in `builder.cpp` demonstrates a `Computer` object being created through a `ComputerBuilder`.
+- `builder.cpp` demonstrates a `Computer` object being created through a `ComputerBuilder`.
+- `pizza.cpp` demonstrates a `Pizza` object with optional toppings created through `PizzaBuilder`.
 
 ## Example walkthrough
 
@@ -99,6 +125,13 @@ The example in `builder.cpp` demonstrates a `Computer` object being created thro
 cd "System Design\DesignPatterns\Creational\Builder"
 g++ -std=c++17 -Wall -Wextra builder.cpp -o builder.exe
 ./builder.exe
+```
+
+To run the pizza example:
+
+```powershell
+g++ -std=c++17 -Wall -Wextra pizza.cpp -o pizza.exe
+./pizza.exe
 ```
 
 ## Simple summary

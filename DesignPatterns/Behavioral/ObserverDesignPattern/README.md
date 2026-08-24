@@ -101,20 +101,44 @@ Use the Observer pattern when:
 - social media followers receiving notifications
 - YouTube subscribers receiving new video alerts
 
+## Easy Notes For Revision
+
+**Simple idea:** when one object changes, all subscribed objects are notified automatically.
+
+**Example:** when a YouTube channel uploads a video, all subscribers receive a notification.
+
+**Where to use:**
+- event notification systems
+- publish-subscribe flows
+- UI updates after data changes
+- stock price updates
+- notification systems
+
+**Advantages:**
+- keeps subject and observers loosely coupled
+- observers can be added or removed at runtime
+- supports one-to-many communication
+- good for event-driven systems
+
+**Disadvantages:**
+- notification flow can be harder to debug
+- too many observers can make behavior hard to track
+- observers should be removed properly to avoid stale references
+- notification order may matter but is not always obvious
+
+**Interview explanation:** Observer creates a one-to-many relationship. The subject stores observers and notifies them whenever its state changes, without depending on their concrete classes.
+
 ## In this folder
 
-- `observer_design_pattern_demo.cpp` demonstrates the basic idea of subject and observer communication.
-- `youtube_notification.cpp` shows a real-world example similar to a YouTube channel and its subscribers.
+- `youtube_notification.cpp` demonstrates the Observer pattern with a YouTube channel and its subscribers.
 
 ## How to run
 
 ```powershell
 cd "System Design\DesignPatterns\Behavioral\ObserverDesignPattern"
-g++ -std=c++17 -Wall -Wextra observer_design_pattern_demo.cpp -o observer_demo.exe
-./observer_demo.exe
+g++ -std=c++17 -Wall -Wextra youtube_notification.cpp -o youtube_notification.exe
+./youtube_notification.exe
 ```
-
-You can replace the file name with `youtube_notification.cpp` to run the second example.
 
 ## Simple summary
 

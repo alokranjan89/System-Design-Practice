@@ -192,6 +192,18 @@ g++ -std=c++17 -Wall -Wextra abstract_factory.cpp -o abstract_factory.exe
 ```
 
 ```powershell
+cd "System Design\DesignPatterns\Creational\Builder"
+g++ -std=c++17 -Wall -Wextra builder.cpp -o builder.exe
+./builder.exe
+```
+
+```powershell
+cd "System Design\DesignPatterns\Creational\Builder"
+g++ -std=c++17 -Wall -Wextra pizza.cpp -o pizza.exe
+./pizza.exe
+```
+
+```powershell
 cd "System Design\DesignPatterns\Creational\Singleton"
 g++ -std=c++17 -Wall -Wextra singleton.cpp -o singleton.exe
 ./singleton.exe

@@ -203,11 +203,12 @@ classDiagram
 
 ## How To Run
 
-From the repository root:
+From this example folder:
 
 ```powershell
-g++ .\AtmCard\atmCard.cpp -o .\AtmCard\atmCard.exe
-.\AtmCard\atmCard.exe
+cd "C:\Users\Asus\OneDrive\Desktop\System Design\Examples\AtmCard"
+g++ -std=c++17 -Wall -Wextra atm_card.cpp -o atm_card.exe
+./atm_card.exe
 ```
 
 ## Sample Output
@@ -239,7 +240,3 @@ Account Number : ACC1001
 Customer Name : Alok
 Balance : 4000
 ```
-
-## Output Screenshot
-
-![ATM card terminal output](./output-screenshot.svg)

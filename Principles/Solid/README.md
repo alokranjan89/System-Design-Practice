@@ -126,7 +126,7 @@ Use SOLID when:
 Compile any relevant file from this folder:
 
 ```powershell
-cd "System Design\Principles\SOLID"
+cd "System Design\Principles\Solid"
 g++ -std=c++17 -Wall -Wextra single_responsibility.cpp -o srp.exe
 ./srp.exe
 ```

@@ -140,3 +140,11 @@ Design a parking lot system that supports:
 ## Simple summary
 
 This example demonstrates how a basic parking lot system can be modeled using objects, responsibilities, and simple flow control. It is a good low-level design example because it shows how classes interact in a realistic problem.
+
+## How to run
+
+```powershell
+cd "C:\Users\Asus\OneDrive\Desktop\System Design\Examples\ParkingLot"
+g++ -std=c++17 -Wall -Wextra parking.cpp -o parking.exe
+./parking.exe
+```

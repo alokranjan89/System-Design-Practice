@@ -66,6 +66,7 @@ Read in this order:
 
 1. [command.cpp](command.cpp) - basic remote control and light example
 2. [musicPlayer.cpp](musicPlayer.cpp) - extra practice with play, pause, and stop commands
+3. [home_control.cpp](home_control.cpp) - smart home remote-control example
 
 ## Flow of execution
 
@@ -280,6 +281,33 @@ Use the Command pattern when:
 - transaction systems
 - macro recording tools
 
+## Easy Notes For Revision
+
+**Simple idea:** turn an action or request into an object.
+
+**Example:** a remote-control button stores a `TurnOnCommand`. When the button is pressed, it calls `execute()` without knowing how the light turns on.
+
+**Where to use:**
+- button and menu actions
+- undo and redo systems
+- command queues
+- task scheduling
+- logging or replaying user actions
+- transaction-style operations
+
+**Advantages:**
+- separates the sender from the receiver
+- makes actions reusable objects
+- supports undo, redo, queues, and logs
+- makes adding new commands easier
+
+**Disadvantages:**
+- creates extra command classes
+- client code must wire commands and receivers correctly
+- may be too much structure for very small direct method calls
+
+**Interview explanation:** Command encapsulates a request as an object. The invoker only calls `execute()`, while the concrete command knows which receiver method should run.
+
 ## Advantages
 
 - reduces coupling between invoker and receiver
@@ -356,6 +384,13 @@ To run the music player example:
 ```powershell
 g++ -std=c++17 -Wall -Wextra musicPlayer.cpp -o musicPlayer.exe
 ./musicPlayer.exe
+```
+
+To run the smart home example:
+
+```powershell
+g++ -std=c++17 -Wall -Wextra home_control.cpp -o home_control.exe
+./home_control.exe
 ```
 
 ## Simple summary

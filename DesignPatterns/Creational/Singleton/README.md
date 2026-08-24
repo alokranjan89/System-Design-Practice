@@ -72,6 +72,33 @@ Use Singleton when:
 - database connection manager
 - cache manager
 
+## Easy Notes For Revision
+
+**Simple idea:** allow only one object of a class and provide one global access point.
+
+**Example:** a `Logger` should usually have one shared instance so all parts of the application write logs through the same object.
+
+**Where to use:**
+- shared configuration
+- logging
+- cache manager
+- connection pool manager
+- resource manager that should not be duplicated
+
+**Advantages:**
+- guarantees a single shared instance
+- avoids duplicate resource objects
+- provides simple global access
+- useful for application-wide services
+
+**Disadvantages:**
+- introduces global state
+- can make testing harder
+- can hide dependencies
+- overuse can make code tightly coupled
+
+**Interview explanation:** Singleton restricts object creation so only one instance exists. It is useful for shared resources, but it should be used carefully because global state can make code harder to test and maintain.
+
 ## In this folder
 
 `singleton.cpp` demonstrates how a class can be restricted to one instance with a global access method.
