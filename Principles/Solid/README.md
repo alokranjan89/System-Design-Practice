@@ -1,17 +1,5 @@
 # SOLID Principles
 
-## What does design mean?
-
-Design is the way we structure software so it stays understandable, maintainable, and flexible. Good design makes it easier to change the code without breaking existing behavior.
-
-We use design to:
-
-- keep responsibilities clear
-- reduce code duplication
-- improve testability
-- make future changes easier
-- avoid tightly coupled code
-
 ## What are SOLID principles?
 
 SOLID is a group of five design principles that help build better object-oriented software. These principles are useful when designing clean class structures and interfaces.

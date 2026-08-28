@@ -1,25 +1,5 @@
 # Observer Design Pattern
 
-## What does design mean?
-
-Design is the planning of how software components should be structured, communicate, and divide responsibilities. It helps us build systems that are easier to understand, easier to change, and less likely to break when requirements evolve.
-
-We use design in real software whenever we need to:
-
-- manage updates between objects
-- keep components loosely coupled
-- avoid repeating logic in multiple places
-- make the code easier to extend later
-- create systems that react to changes automatically
-
-Good design is not just writing code; it is deciding the correct structure before building the solution.
-
-## What is a behavioral design pattern?
-
-A behavioral design pattern focuses on how objects interact and communicate with each other. It helps define responsibilities and control the flow of messages between objects.
-
-The Observer pattern is a behavioral design pattern because it defines a relationship where one object notifies many dependent objects when its state changes.
-
 ## What is the Observer pattern?
 
 The Observer pattern is used when one object needs to notify other objects automatically when something important changes.

@@ -1,17 +1,5 @@
 # Singleton Design Pattern
 
-## What does design mean?
-
-Design is the process of creating a clear structure for a system so that it is easier to maintain and reason about. In software, design decides how objects are created, shared, and accessed.
-
-We use design when we need to:
-
-- manage shared resources
-- control repeated object creation
-- keep access points clear and consistent
-- reduce accidental duplication
-- build stable application-wide configuration
-
 ## What is the Singleton pattern?
 
 The Singleton pattern ensures that a class has only one instance in the entire application and gives a single global access point to it.

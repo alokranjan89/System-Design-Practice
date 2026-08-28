@@ -1,16 +1,5 @@
 # KISS Principle
 
-## What does design mean?
-
-Design is the process of organizing code and system structure so it is understandable, maintainable, and effective. Good design does not mean adding unnecessary complexity.
-
-We use design to:
-
-- keep solutions understandable
-- reduce risk of bugs
-- improve maintainability
-- avoid overengineering
-
 ## What is the KISS principle?
 
 KISS stands for "Keep It Simple, Stupid."

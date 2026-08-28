@@ -1,16 +1,5 @@
 # YAGNI Principle
 
-## What does design mean?
-
-Design is the practice of building software in a way that is structured, understandable, and easier to change. A strong design avoids unnecessary complexity and wasted effort.
-
-We use design to:
-
-- plan solutions before implementing them
-- reduce unnecessary work
-- keep systems focused on actual requirements
-- improve future maintainability
-
 ## What is the YAGNI principle?
 
 YAGNI means "You Aren't Gonna Need It."

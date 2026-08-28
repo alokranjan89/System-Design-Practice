@@ -1,16 +1,5 @@
 # DRY Principle
 
-## What does design mean?
-
-Design is the method of organizing code so it is easier to manage, change, and extend. Good design reduces complexity and keeps the system understandable.
-
-We use design to:
-
-- reduce duplication
-- simplify maintenance
-- improve consistency across the codebase
-- avoid repeated logic in many places
-
 ## What is the DRY principle?
 
 DRY means "Don't Repeat Yourself."

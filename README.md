@@ -19,9 +19,9 @@ Follow this order if you are new to LLD:
 | Area | Completed | Total | Status |
 |---|---:|---:|---|
 | Creational GoF Patterns | 5 | 5 | Complete |
-| Structural GoF Patterns | 0 | 7 | Pending |
-| Behavioral GoF Patterns | 4 | 11 | In Progress |
-| Classic GoF Design Patterns | 9 | 23 | In Progress |
+| Structural GoF Patterns | 1 | 7 | In Progress |
+| Behavioral GoF Patterns | 6 | 11 | In Progress |
+| Classic GoF Design Patterns | 12 | 23 | In Progress |
 | Extra Practical Patterns | 1 | 1 | Complete |
 
 ## Design Pattern Checklist
@@ -41,7 +41,7 @@ Follow this order if you are new to LLD:
 
 | Status | Pattern | Purpose | Location |
 |---|---|---|---|
-| [ ] | Adapter | Make incompatible interfaces work together | Planned |
+| [x] | Adapter | Make incompatible interfaces work together | [Structural](DesignPatterns/Structural/README.md) |
 | [ ] | Bridge | Separate abstraction from implementation | Planned |
 | [ ] | Composite | Treat individual objects and groups uniformly | Planned |
 | [ ] | Decorator | Add behavior without changing the original class | Planned |
@@ -58,9 +58,9 @@ Follow this order if you are new to LLD:
 | [x] | Iterator | Traverse a collection without exposing internals | [Iterator](DesignPatterns/Behavioral/Iterator-design-pattern/README.md) |
 | [x] | Command | Encapsulate a request as an object | [Command](DesignPatterns/Behavioral/command-design-pattern/README.md) |
 | [ ] | Chain of Responsibility | Pass a request through a chain of handlers | Planned |
-| [ ] | Mediator | Centralize communication between objects | Planned |
+| [x] | Mediator | Centralize communication between objects | [Mediator](DesignPatterns/Behavioral/Mediator-design-pattern/README.md) |
 | [ ] | Memento | Capture and restore object state | Planned |
-| [ ] | State | Change behavior when internal state changes | Planned |
+| [x] | State | Change behavior when internal state changes | [State](DesignPatterns/Behavioral/state-design-pattern/README.md) |
 | [ ] | Template Method | Define an algorithm skeleton in a base class | Planned |
 | [ ] | Visitor | Add operations without changing object classes | Planned |
 | [ ] | Interpreter | Represent and evaluate grammar or expressions | Planned |
@@ -77,11 +77,16 @@ System Design/
 |   |   |-- FactoryPatterns/
 |   |   |-- Prototype/
 |   |   `-- Singleton/
+|   |-- Structural/
+|   |   |-- README.md
+|   |   `-- Adapter/
 |   `-- Behavioral/
 |       |-- README.md
 |       |-- command-design-pattern/
 |       |-- Iterator-design-pattern/
+|       |-- Mediator-design-pattern/
 |       |-- ObserverDesignPattern/
+|       |-- state-design-pattern/
 |       `-- StrategyDesignPattern/
 |-- Principles/
 |   |-- README.md
@@ -173,3 +178,7 @@ This is not a complete high-level distributed system design course. For large-sc
 6. Explain the design without looking at the code.
 
 The final step matters most. If you can explain why each class exists and how objects collaborate, you are learning design instead of memorizing code.
+
+## Quick Revision
+
+Use [QUICK_REVISION.md](QUICK_REVISION.md) when you want to revise only the required points quickly before practice or interviews.

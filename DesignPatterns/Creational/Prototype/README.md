@@ -1,17 +1,5 @@
 # Prototype Design Pattern
 
-## What does design mean?
-
-Design is about choosing the best structure for solving a problem in a maintainable and reusable way. In software, it helps us decide how objects should be created, reused, and connected.
-
-We use design whenever we want to:
-
-- avoid repeated setup work
-- organize object creation cleanly
-- improve code reuse
-- reduce complexity in large systems
-- make future changes easier
-
 ## What is the Prototype pattern?
 
 The Prototype pattern creates new objects by copying an existing object instead of constructing a new one from scratch.

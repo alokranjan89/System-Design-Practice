@@ -8,6 +8,8 @@ Behavioral patterns focus on how objects communicate, delegate work, and change 
 2. [Observer](ObserverDesignPattern/README.md)
 3. [Iterator](Iterator-design-pattern/README.md)
 4. [Command](command-design-pattern/README.md)
+5. [Mediator](Mediator-design-pattern/README.md)
+6. [State](state-design-pattern/README.md)
 
 ## Patterns In This Folder
 
@@ -17,6 +19,8 @@ Behavioral patterns focus on how objects communicate, delegate work, and change 
 | Observer | Notify many objects when one object changes | [ObserverDesignPattern](ObserverDesignPattern/README.md) |
 | Iterator | Traverse a collection without exposing internals | [Iterator-design-pattern](Iterator-design-pattern/README.md) |
 | Command | Turn a request/action into an object | [command-design-pattern](command-design-pattern/README.md) |
+| Mediator | Centralize communication between multiple objects | [Mediator-design-pattern](Mediator-design-pattern/README.md) |
+| State | Change behavior when internal state changes | [state-design-pattern](state-design-pattern/README.md) |
 
 ## What To Learn
 

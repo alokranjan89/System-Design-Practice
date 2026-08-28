@@ -120,19 +120,6 @@ Use Iterator when:
 
 **Interview explanation:** Iterator lets client code access collection elements sequentially using methods such as `hasNext()` and `next()` without exposing how the collection is stored.
 
-## Iterator vs Other Patterns
-
-| Pattern | Purpose |
-|---|---|
-| Iterator | Access elements one by one |
-| Strategy | Change an algorithm at runtime |
-| Observer | Notify subscribers about changes |
-| Command | Encapsulate an action as an object |
-
-## Interview Explanation
-
-The Iterator pattern separates traversal logic from the collection. The client can access elements sequentially through a common interface like `hasNext()` and `next()` without knowing whether the data is stored in an array, list, tree, or another structure.
-
 ## Quick Revision
 
 ```text

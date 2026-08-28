@@ -1,25 +1,5 @@
 # Strategy Design Pattern
 
-## What does design mean?
-
-Design is the process of planning how a system should be structured so that it is easy to understand, maintain, and extend. In software, design decides how classes, modules, and responsibilities are arranged.
-
-We use design in real systems whenever we need to:
-
-- separate business logic from implementation details
-- create reusable solutions
-- handle future changes without rewriting the whole system
-- reduce code repetition and complexity
-- make code easier to test and maintain
-
-Design helps us create software that is not only functional, but also clean and scalable.
-
-## What is a behavioral design pattern?
-
-A behavioral design pattern deals with how objects interact and share responsibilities. It focuses on communication, workflows, and delegation of behavior.
-
-The Strategy pattern is a behavioral pattern because it changes how an object behaves by selecting a different strategy at runtime.
-
 ## What is the Strategy pattern?
 
 The Strategy pattern allows an object to change its behavior by using different interchangeable algorithms or strategies.

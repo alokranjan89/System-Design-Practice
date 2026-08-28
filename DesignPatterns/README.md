@@ -4,16 +4,18 @@ Design patterns are reusable solutions to common software design problems. They 
 
 ## Recommended Order
 
-Start with creational patterns, then behavioral patterns.
+Start with creational patterns, then structural patterns, then behavioral patterns.
 
 1. [Creational Patterns](Creational/README.md)
-2. [Behavioral Patterns](Behavioral/README.md)
+2. [Structural Patterns](Structural/README.md)
+3. [Behavioral Patterns](Behavioral/README.md)
 
 ## Pattern Families In This Repo
 
 | Family | Purpose | Folder |
 |---|---|---|
 | Creational | How objects are created | [Creational](Creational/README.md) |
+| Structural | How objects and classes are connected | [Structural](Structural/README.md) |
 | Behavioral | How objects communicate and share behavior | [Behavioral](Behavioral/README.md) |
 
 ## How To Study A Pattern

@@ -1,17 +1,5 @@
 # Builder Design Pattern
 
-## What does design mean?
-
-Design means planning how a system should be structured so that it stays simple, clear, and maintainable. In software, design decides how objects are built and how responsibilities are assigned.
-
-We use design when we want to:
-
-- avoid messy construction logic
-- make code readable
-- manage complex object creation cleanly
-- reduce constructor overload issues
-- support different configurations without rewriting logic
-
 ## What is the Builder pattern?
 
 The Builder pattern is used to construct a complex object step by step. Instead of passing a huge list of parameters to a constructor, we use a builder object that sets one part at a time and finally creates the final object.
