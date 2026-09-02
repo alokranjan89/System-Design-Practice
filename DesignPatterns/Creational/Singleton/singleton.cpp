@@ -54,7 +54,7 @@ using namespace std;
 // ==========================
 // PURPOSE: Ensure only ONE instance exists, accessible globally
 // METHOD: Create instance before main() starts (eager initialization)
-// 
+//
 // IMPLEMENTATION STEPS:
 // 1. Static pointer to hold the single instance
 // 2. Private constructor (prevent direct instantiation)
@@ -89,37 +89,38 @@ using namespace std;
 class Singleton
 {
 private:
-    // Static pointer stores the only object of this class.
-    // This is created once before main() runs
-    static Singleton *instance;
+   // Static pointer stores the only object of this class.
+   // This is created once before main() runs
+   static Singleton *instance;
 
-    // Private constructor prevents creating objects directly in main().
-    // Only getInstance() can create the instance (indirectly via static initialization)
-    Singleton()
-    {
-        cout << "Singleton Constructor Called" << endl;
-    }
-    
-    // Delete copy constructor to prevent copying
-    Singleton(const Singleton&) = delete;
-    
-    // Delete assignment operator to prevent copying
-    Singleton& operator=(const Singleton&) = delete;
+   // Private constructor prevents creating objects directly in main().
+   // Only getInstance() can create the instance (indirectly via static initialization)
+   Singleton()
+   {
+      cout << "Singleton Constructor Called" << endl;
+   }
+
+   // Delete copy constructor to prevent copying
+   Singleton(const Singleton &) = delete;
+
+   // Delete assignment operator to prevent copying
+   Singleton &operator=(const Singleton &) = delete;
 
 public:
-    // Static method to get the single instance
-    // GUARANTEE: Always returns same object address
-    // THREAD-SAFE: By static initialization (before main)
-    static Singleton *getInstance()
-    {
-        // Return the object that was already created below.
-        return instance;
-    }
-    
-    // Add any application logic here
-    void someMethod() {
-        cout << "Doing something with singleton...\n";
-    }
+   // Static method to get the single instance
+   // GUARANTEE: Always returns same object address
+   // THREAD-SAFE: By static initialization (before main)
+   static Singleton *getInstance()
+   {
+      // Return the object that was already created below.
+      return instance;
+   }
+
+   // Add any application logic here
+   void someMethod()
+   {
+      cout << "Doing something with singleton...\n";
+   }
 };
 
 // ==========================
@@ -128,38 +129,38 @@ public:
 // This line executes BEFORE main() is called
 // Object is allocated once and never deallocated
 // All getInstance() calls return this same instance
-// 
+//
 // MEMORY: Singleton object persists for entire program lifetime
 // INITIALIZATION: Happens once during static initialization phase
 Singleton *Singleton::instance = new Singleton();
 
 int main()
 {
-    // ==========================
-    // CLIENT CODE - SINGLETON USAGE
-    // ==========================
-    
-    // Get singleton instance (first time)
-    Singleton *s1 = Singleton::getInstance();
-    cout << "s1 address: " << s1 << "\n";
+   // ==========================
+   // CLIENT CODE - SINGLETON USAGE
+   // ==========================
 
-    // Get singleton instance (second time)
-    // Same instance returned, not a new one!
-    Singleton *s2 = Singleton::getInstance();
-    cout << "s2 address: " << s2 << "\n";
+   // Get singleton instance (first time)
+   Singleton *s1 = Singleton::getInstance();
+   cout << "s1 address: " << s1 << "\n";
 
-    // Comparison: Both pointers point to same object
-    // Output: 1 (true) because s1 == s2
-    cout << "\nAre s1 and s2 the same? " << (s1 == s2) << endl;
-    
-    // Use the singleton
-    s1->someMethod();
-    s2->someMethod();
-    
-    // Both s1 and s2 are the SAME object
-    // Modifying through s1 affects s2
-    
-    return 0;
+   // Get singleton instance (second time)
+   // Same instance returned, not a new one!
+   Singleton *s2 = Singleton::getInstance();
+   cout << "s2 address: " << s2 << "\n";
+
+   // Comparison: Both pointers point to same object
+   // Output: 1 (true) because s1 == s2
+   cout << "\nAre s1 and s2 the same? " << (s1 == s2) << endl;
+
+   // Use the singleton
+   s1->someMethod();
+   s2->someMethod();
+
+   // Both s1 and s2 are the SAME object
+   // Modifying through s1 affects s2
+
+   return 0;
 }
 
 /*
@@ -241,12 +242,12 @@ A: ✗ When multiple instances are needed
    ✗ When dependency injection would work better
 
 Q13: Singleton vs Static Class?
-A: SINGLETON: 
+A: SINGLETON:
    - Class with one instance
    - Can implement interfaces
    - Can be passed as object
    - Can have mutable state
-   
+
    STATIC CLASS:
    - All methods are static
    - Can't instantiate
@@ -258,7 +259,7 @@ A: 1. Make getInstance() public in test-only mode
    2. Add resetInstance() method for testing
    3. Use dependency injection instead of Singleton
    4. Mock the Singleton in tests
-   
+
    Example (for testing):
    static void resetInstance() {
        if (instance != nullptr) delete instance;
@@ -268,13 +269,13 @@ A: 1. Make getInstance() public in test-only mode
 Q15: Singleton Pattern Problems and Solutions?
 A: PROBLEM: Multiple threads create instance (lazy + no mutex)
    SOLUTION: Use mutex or Meyers Singleton
-   
+
    PROBLEM: Can't create multiple instances for different scenarios
    SOLUTION: Registry pattern + factory methods
-   
+
    PROBLEM: Hard to test (global state)
    SOLUTION: Dependency injection
-   
+
    PROBLEM: Memory not freed
    SOLUTION: Use Meyers Singleton (stack allocation) or cleanup method
 
@@ -330,3 +331,5 @@ REVISION CHECKLIST
 
 ================================================================================
 */
+
+

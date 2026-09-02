@@ -39,19 +39,21 @@ Use Singleton when:
 - a resource manager is meant to be shared
 - object initialization should happen only once
 
-## Advantages
+## General advantages
 
-- ensures one shared instance
-- easy to access globally
-- avoids unnecessary duplicate objects
-- useful for shared system resources
+- ensures that only one shared instance is created
+- provides a single access point for shared application state
+- avoids duplicate expensive resources
+- can coordinate services such as logging, configuration, and caching
 
-## Disadvantages
+## General disadvantages
 
-- global state can make debugging harder
-- can reduce code flexibility
-- may hurt testability
-- overuse can create hidden dependencies
+- introduces global state and hidden dependencies
+- makes unit testing and dependency replacement harder
+- couples callers to a concrete implementation
+- can become a bottleneck if the instance is not designed for concurrency
+- lifetime and shutdown behavior may be difficult to control
+- overuse can hide poor dependency design
 
 ## Common real-world examples
 
@@ -91,9 +93,75 @@ Use Singleton when:
 
 `singleton.cpp` demonstrates how a class can be restricted to one instance with a global access method.
 
-## Eager initialization example
+## Implementation methods
 
-This version creates the object at startup.
+The following methods all return the same object, but they differ in when the
+object is created, how much synchronization they need, and how much complexity
+they introduce.
+
+### 1. Simple lazy initialization
+
+The object is created inside `getInstance()` the first time it is requested.
+
+```cpp
+static Singleton* instance = nullptr;
+
+static Singleton* getInstance() {
+    if (instance == nullptr) {
+        instance = new Singleton();
+    }
+    return instance;
+}
+```
+
+#### Advantages
+
+- creates the object only when it is needed
+- simple to read and implement
+- avoids startup cost when the object is never used
+- suitable for single-threaded programs
+
+#### Disadvantages
+
+- not thread-safe: two threads can create two objects at the same time
+- manual `new` requires lifetime and cleanup decisions
+- concurrent access can expose a partially initialized object
+- should not be used as written in multithreaded production code
+
+### 2. Double-checked locking
+
+The first check avoids locking after initialization. The second check prevents
+two threads from creating the object while the lock is held.
+
+```cpp
+if (instance == nullptr) {
+    lock_guard<mutex> lock(mtx);
+    if (instance == nullptr) {
+        instance = new Singleton();
+    }
+}
+return instance;
+```
+
+#### Advantages
+
+- creates the object only when it is needed
+- avoids taking the lock on most calls after initialization
+- can be useful when the implementation is carefully synchronized
+
+#### Disadvantages
+
+- more difficult to implement and review correctly
+- requires a mutex and additional shared state
+- the shown raw-pointer version is not fully safe in portable C++ without
+  correct atomic memory ordering
+- locking adds complexity and runtime overhead
+- the old MinGW 6.3 compiler in this workspace does not provide `std::mutex`,
+  so this example does not compile with that toolchain
+
+### 3. Eager initialization
+
+The object is created before `main()` when the static data member is initialized.
 
 ```cpp
 class Singleton {
@@ -110,52 +178,47 @@ public:
 Singleton* Singleton::instance = new Singleton();
 ```
 
-### Advantages
+#### Advantages
 
 - simple and easy to understand
-- object exists before first use
-- no lock is needed
+- thread-safe during initialization
+- no locking is needed in `getInstance()`
+- initialization failure happens early, during program startup
 
-### Disadvantages
+#### Disadvantages
 
 - object is created even if it is never used
-- may be wasteful for expensive resources
+- startup can be slower
+- expensive initialization always consumes resources
+- initialization order across different translation units can be difficult
+- raw `new` makes ownership and cleanup less clear
 
-## Lazy initialization example
+### 4. Function-local static initialization (recommended)
 
-This version creates the object only when it is needed.
+Modern C++ guarantees that initialization of a function-local static is
+thread-safe. The object is created on first use and destroyed automatically at
+program shutdown.
 
 ```cpp
-class Singleton {
-private:
-    static Singleton* instance;
-    static mutex mtx;
-
-    Singleton() {}
-
-public:
-    static Singleton* getInstance() {
-        if (instance == nullptr) {
-            lock_guard<mutex> lock(mtx);
-            if (instance == nullptr) {
-                instance = new Singleton();
-            }
-        }
-        return instance;
-    }
-};
+static Singleton& getInstance() {
+    static Singleton instance;
+    return instance;
+}
 ```
 
-### Advantages
+#### Advantages
 
-- object is created only when needed
-- better for expensive initialization
-- useful in multithreaded code
+- lazy initialization and thread-safe first construction
+- no explicit mutex, raw pointer, or manual cleanup
+- supported from C++11 onward
+- avoids most static initialization order problems
 
-### Disadvantages
+#### Disadvantages
 
-- more complex than eager initialization
-- thread-safety has to be managed carefully
+- the instance usually lives until program shutdown
+- destruction order can still matter when other global objects use it
+- returning a reference instead of a pointer may require small API changes
+- it is still global state and therefore still has testing and coupling costs
 
 ## Best practice note
 
@@ -165,10 +228,10 @@ In modern C++, a function-local static variable is often the simplest and safest
 
 ```powershell
 cd "System Design\DesignPatterns\Creational\Singleton"
-g++ -std=c++17 -Wall -Wextra singleton.cpp -o singleton.exe
-./singleton.exe
+g++ -std=c++17 -Wall -Wextra sing.cpp -o sing.exe
+./sing.exe
 ```
 
 ## Simple summary
 
-The Singleton pattern is used when exactly one shared instance should exist throughout the application. It helps enforce consistency and avoid unnecessary duplication, but it should be used carefully because it introduces global state.
+The Singleton pattern is used when exactly one shared instance should exist throughout the application. For most modern C++ code, prefer function-local static initialization. Use eager initialization when startup creation is acceptable, and use explicit locking only when there is a specific need and the synchronization has been designed correctly. The pattern should still be used carefully because it introduces global state.
