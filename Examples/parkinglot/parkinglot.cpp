@@ -4,6 +4,7 @@
 #include <memory>
 #include <ctime>
 #include <unordered_map>
+#include <utility>
 
 using namespace std;
 
@@ -386,6 +387,47 @@ public:
     }
 };
 
+class PricingStrategy
+{
+public:
+    virtual double calculatePrice(
+        Ticket *ticket,
+        time_t exitTime) = 0;
+
+    virtual ~PricingStrategy() = default;
+};
+
+class TimeBasedPricing : public PricingStrategy
+{
+public:
+    double calculatePrice(
+        Ticket *ticket,
+        time_t exitTime) override
+    {
+        double hours =
+            difftime(
+                exitTime,
+                ticket->getEntryTime()) /
+            3600.0;
+
+        if (hours < 1)
+            hours = 1;
+
+        return hours * 40;
+    }
+};
+
+class EventBasedPricing : public PricingStrategy
+{
+public:
+    double calculatePrice(
+        Ticket *ticket,
+        time_t exitTime) override
+    {
+        return 100;
+    }
+};
+
 class ParkingLot
 {
     // make_unique creates an object and returns a unique_ptr that owns it, providing automatic memory management and avoiding manual delete
@@ -553,3 +595,206 @@ public:
     }
 };
 
+class PaymentStrategy
+{
+public:
+    virtual bool pay(double amount) = 0;
+
+    virtual ~PaymentStrategy() = default;
+};
+
+class CashPayment : public PaymentStrategy
+{
+public:
+    bool pay(double amount) override
+    {
+        cout << "Paid ₹" << amount << " using Cash" << endl;
+
+        return true;
+    }
+};
+
+class CardPayment : public PaymentStrategy
+{
+public:
+    bool pay(double amount) override
+    {
+        cout << "Paid ₹" << amount << " using Card" << endl;
+
+        return true;
+    }
+};
+class PaymentProcessor
+{
+private:
+    PaymentStrategy *paymentStrategy;
+
+public:
+    PaymentProcessor(PaymentStrategy *paymentStrategy)
+        : paymentStrategy(paymentStrategy)
+    {
+    }
+
+    bool processPayment(double amount)
+    {
+        return paymentStrategy->pay(amount);
+    }
+};
+
+class ParkingProcessor
+{
+private:
+    ParkingLot *parkingLot;
+
+public:
+    ParkingProcessor(ParkingLot *parkingLot)
+        : parkingLot(parkingLot)
+    {
+    }
+
+    Ticket *parkVehicle(Vehicle *vehicle)
+    {
+        return parkingLot->enterVehicle(vehicle);
+    }
+
+    bool exitVehicle(
+    int ticketId,
+    PricingStrategy *pricingStrategy,
+    PaymentStrategy *paymentStrategy)
+{
+    // Find ticket
+    Ticket *ticket =
+        parkingLot->getTicket(ticketId);
+
+    if (ticket == nullptr)
+    {
+        cout << "Invalid ticket\n";
+        return false;
+    }
+
+    // Get exit time
+    time_t exitTime = time(nullptr);
+
+    // Calculate parking fee
+    double amount =
+        pricingStrategy->calculatePrice(
+            ticket,
+            exitTime);
+
+    cout << "Parking fee: ₹"
+         << amount
+         << endl;
+
+    // Process payment
+    PaymentProcessor paymentProcessor(
+        paymentStrategy);
+
+    bool paymentSuccessful =
+        paymentProcessor.processPayment(amount);
+
+    if (!paymentSuccessful)
+    {
+        cout << "Payment failed\n";
+        return false;
+    }
+
+    // Find the parking floor
+    ParkingFloor *floor =
+        parkingLot->getFloor(
+            ticket->getFloorNumber());
+
+    if (floor == nullptr)
+    {
+        cout << "Floor not found\n";
+        return false;
+    }
+
+    // Find the parking spot
+    ParkingSpot *spot =
+        floor->getParkingSpot(
+            ticket->getSpotId());
+
+    if (spot == nullptr)
+    {
+        cout << "Parking spot not found\n";
+        return false;
+    }
+
+    // Remove vehicle
+    spot->removeVehicle();
+
+    cout << "Vehicle exited successfully\n";
+
+    return true;
+}
+};
+
+int main()
+{
+    ParkingLot lot("My Parking Lot");
+
+    // Create floor
+    auto floor1 =
+        make_unique<ParkingFloor>(1);
+
+    // Add parking spots
+    floor1->addParkingSpot(
+        make_unique<ParkingSpot>(
+            1,
+            VehicleType::BIKE));
+
+    floor1->addParkingSpot(
+        make_unique<ParkingSpot>(
+            2,
+            VehicleType::CAR));
+
+    floor1->addParkingSpot(
+        make_unique<ParkingSpot>(
+            3,
+            VehicleType::TRUCK));
+
+    lot.addFloor(move(floor1));
+
+    // Add gates
+    lot.addEntryGate(
+        make_unique<EntryGate>(1));
+
+    lot.addExitGate(
+        make_unique<ExitGate>(1));
+
+    // Create vehicle using Factory
+    auto car =
+        VehicleFactory::createVehicle(
+            VehicleType::CAR,
+            "CAR123");
+
+    // Parking processor
+    ParkingProcessor processor(&lot);
+
+    // Enter
+    Ticket *ticket =
+        processor.parkVehicle(car.get());
+
+    if (ticket == nullptr)
+    {
+        return 0;
+    }
+
+    cout << "Ticket ID: "
+         << ticket->getTicketId()
+         << endl;
+
+    // Pricing strategy
+    TimeBasedPricing pricing;
+
+    // Payment strategy
+    CashPayment payment;
+
+    // Exit
+    processor.exitVehicle(
+        ticket->getTicketId(),
+        &pricing,
+        &payment);
+
+    return 0;
+}
