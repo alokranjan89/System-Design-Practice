@@ -1,0 +1,104 @@
+classDiagram
+    class Vehicle {
+        -string number
+        -VehicleType type
+        +Vehicle(number, type)
+        +string getNumber()
+        +VehicleType getType()
+    }
+
+    class Bike
+    class Car
+    class Truck
+
+    Vehicle <|-- Bike
+    Vehicle <|-- Car
+    Vehicle <|-- Truck
+
+    class VehicleFactory {
+        +createVehicle(type, number) Vehicle
+    }
+
+    class ParkingSpot {
+        -int id
+        -VehicleType supportedVehicleType
+        -Vehicle* vehicle
+        +bool canPark(vehicle)
+        +void park(vehicle)
+        +Vehicle* removeVehicle()
+    }
+
+    class ParkingFloor {
+        -int floorNumber
+        -vector<ParkingSpot*> parkingSpots
+        +void addParkingSpot(spot)
+        +ParkingSpot* getAvailableSpot(vehicle)
+        +ParkingSpot* getParkingSpot(id)
+    }
+
+    class Ticket {
+        -int ticketId
+        -Vehicle* vehicle
+        -int floorNumber
+        -int spotId
+        -time_t entryTime
+        +Ticket(ticketId, vehicle, floorNumber, spotId)
+    }
+
+    class Gate {
+        -int id
+        -GateType type
+    }
+
+    class EntryGate
+    class ExitGate
+
+    Gate <|-- EntryGate
+    Gate <|-- ExitGate
+
+    class ParkingLot {
+        -string name
+        -vector<ParkingFloor*> parkingFloors
+        -vector<EntryGate*> entryGates
+        -vector<ExitGate*> exitGates
+        -unordered_map<int, Ticket*> tickets
+        +Ticket* enterVehicle(vehicle)
+        +Ticket* getTicket(id)
+        +ParkingFloor* getFloor(number)
+    }
+
+    class PricingStrategy {
+        <<interface>>
+        +calculatePrice(ticket, exitTime)
+    }
+
+    class TimeBasedPricing
+    class EventBasedPricing
+
+    PricingStrategy <|-- TimeBasedPricing
+    PricingStrategy <|-- EventBasedPricing
+
+    class PaymentStrategy {
+        <<interface>>
+        +pay(amount)
+    }
+
+    class CashPayment
+    class CardPayment
+
+    PaymentStrategy <|-- CashPayment
+    PaymentStrategy <|-- CardPayment
+
+    class ParkingProcessor {
+        -ParkingLot* parkingLot
+        +Ticket* parkVehicle(vehicle)
+        +bool exitVehicle(ticketId, pricingStrategy, paymentStrategy)
+    }
+
+    ParkingLot --> ParkingFloor
+    ParkingFloor --> ParkingSpot
+    ParkingSpot --> Vehicle
+    Ticket --> Vehicle
+    ParkingProcessor --> ParkingLot
+    ParkingProcessor --> PricingStrategy
+    ParkingProcessor --> PaymentStrategy
