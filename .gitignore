@@ -17,3 +17,6 @@
 *~
 *.tmp
 *.swp
+
+# Ignore generated Google Docs example output
+Examples/GoogleDocs/document.txt

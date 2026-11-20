@@ -8,7 +8,7 @@ The purpose of this repo is to make design concepts easy to revise and easy to p
 
 Follow this order if you are new to LLD:
 
-1. Learn OOP fundamentals: class, object, inheritance, abstraction, encapsulation, and polymorphism.
+1. Learn [OOP fundamentals](OOP/README.md): class, object, inheritance, abstraction, encapsulation, and polymorphism.
 2. Study [design principles](Principles/README.md): SOLID, DRY, KISS, and YAGNI.
 3. Study [design patterns](DesignPatterns/README.md): reusable object-oriented solutions.
 4. Practice [LLD examples](Examples/README.md): small real-world systems.
@@ -68,7 +68,8 @@ Follow this order if you are new to LLD:
 ## Repository Structure
 
 ```text
-System Design/
+System-Design-Practice/
+|-- OOP/
 |-- DesignPatterns/
 |   |-- README.md
 |   |-- Creational/
@@ -100,9 +101,10 @@ System Design/
 |   |-- AtmCard/
 |   |-- BankManagement/
 |   |-- EmployeeManagement/
+|   |-- GoogleDocs/
 |   |-- HospitalManagement/
 |   |-- LibraryManagement/
-|   |-- ParkingLot/
+|   |-- parkinglot/
 |   |-- Smart Notification System/
 |   `-- VehicleManagement/
 |-- README.md
@@ -114,7 +116,7 @@ System Design/
 Compile one file at a time.
 
 ```powershell
-cd "C:\Users\Asus\OneDrive\Desktop\System Design\Examples\BankManagement"
+cd Examples\BankManagement
 g++ -std=c++17 -Wall -Wextra bank_management.cpp -o bank_management.exe
 ./bank_management.exe
 ```
@@ -178,7 +180,3 @@ This is not a complete high-level distributed system design course. For large-sc
 6. Explain the design without looking at the code.
 
 The final step matters most. If you can explain why each class exists and how objects collaborate, you are learning design instead of memorizing code.
-
-## Quick Revision
-
-Use [QUICK_REVISION.md](QUICK_REVISION.md) when you want to revise only the required points quickly before practice or interviews.

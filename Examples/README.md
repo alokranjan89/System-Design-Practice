@@ -11,8 +11,9 @@ This folder contains small low-level design examples. Use these after you have s
 5. [Vehicle Management](VehicleManagement/README.md)
 6. [Library Management](LibraryManagement/README.md)
 7. [Hospital Management](HospitalManagement/README.md)
-8. [Parking Lot](ParkingLot/README.md)
+8. [Parking Lot](parkinglot/README.md)
 9. [Smart Notification System](Smart%20Notification%20System/README.md)
+10. [Google Docs](GoogleDocs/google.cpp)
 
 ## What To Practice
 
