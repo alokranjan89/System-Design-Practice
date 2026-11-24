@@ -1,17 +1,29 @@
+
 #include <iostream>
 #include <fstream>
 #include <memory>
 #include <string>
-#include <utility>
 #include <vector>
+#include <utility>
+
 using namespace std;
+
+// ==================================================
+// 1. DocumentElement - Abstract Base Class
+// ==================================================
 
 class DocumentElement
 {
 public:
-    virtual string render() = 0;
+    // Every document element must implement render()
+    virtual string render() const = 0;
+
     virtual ~DocumentElement() = default;
 };
+
+// ==================================================
+// 2. TextElement - Represents text
+// ==================================================
 
 class TextElement : public DocumentElement
 {
@@ -19,154 +31,220 @@ private:
     string text;
 
 public:
-    TextElement(string text)
+    explicit TextElement(string text)
+        : text(move(text))
     {
-        this->text = text;
     }
-    string render() override
+
+    string render() const override
     {
         return text;
     }
 };
 
+// ==================================================
+// 3. ImageElement - Represents an image
+// ==================================================
+
 class ImageElement : public DocumentElement
 {
 private:
-    string imgpath;
+    string imagePath;
 
 public:
-    ImageElement(string imgpath)
+    explicit ImageElement(string imagePath)
+        : imagePath(move(imagePath))
     {
-        this->imgpath = imgpath;
     }
-    string render() override
+
+    string render() const override
     {
-        return "[Image: " + imgpath + "]";
+        return "[Image: " + imagePath + "]";
     }
 };
+
+// ==================================================
+// 4. NewLineElement - Represents a new line
+// ==================================================
 
 class NewLineElement : public DocumentElement
 {
 public:
-    string render() override
+    string render() const override
     {
         return "\n";
     }
 };
 
+// ==================================================
+// 5. TabSpaceElement - Represents tab spacing
+// ==================================================
+
 class TabSpaceElement : public DocumentElement
 {
 public:
-    string render() override
+    string render() const override
     {
         return "\t";
     }
 };
 
+// ==================================================
+// 6. Document - Stores document elements
+// ==================================================
+
 class Document
 {
 private:
-    vector<unique_ptr<DocumentElement>> documentelements;
+    vector<unique_ptr<DocumentElement>> elements;
 
 public:
+    // Takes ownership of the document element
     void addElement(unique_ptr<DocumentElement> element)
     {
-        documentelements.push_back(std::move(element));
+        if (element)
+        {
+            elements.push_back(move(element));
+        }
     }
 
-    string render()
+    // Renders all elements in sequence
+    string render() const
     {
         string result;
-        for (const auto& element : documentelements)
+
+        for (const auto& element : elements)
         {
             result += element->render();
         }
+
         return result;
     }
 };
 
-class persistence
+// ==================================================
+// 7. Persistence - Abstract Storage Interface
+// ==================================================
+
+class Persistence
 {
 public:
-    virtual void save(string data) = 0;
-    virtual ~persistence() = default;
+    virtual void save(const string& data) = 0;
+
+    virtual ~Persistence() = default;
 };
 
-class FileStorage : public persistence
+// ==================================================
+// 8. FileStorage - Saves document into a file
+// ==================================================
+
+class FileStorage : public Persistence
 {
 public:
-    void save(string data) override
+    void save(const string& data) override
     {
         ofstream outFile("document.txt");
-        if (outFile)
+
+        if (!outFile)
         {
-            outFile << data;
-            outFile.close();
-            cout << "Document saved to document.txt" << endl;
+            cout << "Error: Unable to open file\n";
+            return;
         }
-        else
+
+        outFile << data;
+
+        if (!outFile)
         {
-            cout << "Error : Unable to open file for writing" << endl;
+            cout << "Error: Unable to write file\n";
+            return;
         }
+
+        cout << "Document saved successfully\n";
     }
 };
+
+// ==================================================
+// 9. DocumentEditor - Coordinates document operations
+// ==================================================
 
 class DocumentEditor
 {
 private:
-    Document *document;
-    persistence *storage;
+    Document& document;
+    Persistence& storage;
 
 public:
-    DocumentEditor(Document *document, persistence *storage)
+    // Dependency Injection through references
+    DocumentEditor(Document& document, Persistence& storage)
+        : document(document), storage(storage)
     {
-        this->document = document;
-        this->storage = storage;
     }
 
     void addText(string text)
     {
-        document->addElement(make_unique<TextElement>(text));
+        document.addElement(
+            make_unique<TextElement>(move(text))
+        );
     }
 
     void addImage(string imagePath)
     {
-        document->addElement(make_unique<ImageElement>(imagePath));
+        document.addElement(
+            make_unique<ImageElement>(move(imagePath))
+        );
     }
 
     void addNewLine()
     {
-        document->addElement(make_unique<NewLineElement>());
-    }
-    void TabSpace()
-    {
-        document->addElement(make_unique<TabSpaceElement>());
+        document.addElement(
+            make_unique<NewLineElement>()
+        );
     }
 
-    string renderDocument()
+    void addTabSpace()
     {
-        return document->render();
+        document.addElement(
+            make_unique<TabSpaceElement>()
+        );
+    }
+
+    string renderDocument() const
+    {
+        return document.render();
     }
 
     void saveDocument()
     {
-        storage->save(renderDocument());
+        storage.save(renderDocument());
     }
 };
+
+// ==================================================
+// 10. Main Function
+// ==================================================
 
 int main()
 {
     Document document;
     FileStorage storage;
-    DocumentEditor editor(&document, &storage);
 
-    editor.addText("Google Docs example");
+    DocumentEditor editor(document, storage);
+
+    // Adding content
+    editor.addText("Google Docs Example");
     editor.addNewLine();
-    editor.addText("This document is rendered and saved to a file.");
+
+    editor.addText("This document is rendered and saved.");
     editor.addNewLine();
+
+    editor.addTabSpace();
     editor.addImage("example.png");
 
-    cout << editor.renderDocument();
+    // Rendering document
+    cout << "Document Content:\n";
+    cout << editor.renderDocument() << endl;
+
+    // Saving document
     editor.saveDocument();
 
     return 0;
