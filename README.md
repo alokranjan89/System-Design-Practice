@@ -1,182 +1,48 @@
-# System Design and LLD Practice
+# C++ Low-Level Design Practice
 
-This repository is a structured C++ practice workspace for **Low Level Design (LLD)**, **object-oriented design**, **SOLID principles**, and **design patterns**.
+A C++ learning repository for object-oriented programming, design principles, design patterns, and low-level design examples. The examples are small exercises for learning and discussion, not production-ready systems.
 
-The purpose of this repo is to make design concepts easy to revise and easy to practice. Each topic is organized with a focused README and small C++ examples so that a learner can understand the problem, study the class design, compile the code, and explain the solution clearly.
+## Start here
 
-## Learning Roadmap
+New to the repository? Follow this path:
 
-Follow this order if you are new to LLD:
+1. [OOP fundamentals](OOP/README.md)
+2. [Design principles](Principles/README.md)
+3. [Design patterns](DesignPatterns/README.md)
+4. [LLD practice examples](Examples/README.md)
 
-1. Learn [OOP fundamentals](OOP/README.md): class, object, inheritance, abstraction, encapsulation, and polymorphism.
-2. Study [design principles](Principles/README.md): SOLID, DRY, KISS, and YAGNI.
-3. Study [design patterns](DesignPatterns/README.md): reusable object-oriented solutions.
-4. Practice [LLD examples](Examples/README.md): small real-world systems.
-5. Revisit each folder README and explain the design in your own words.
+Each topic guide explains the problem, the main classes or roles, and links to the source files. Read the guide, trace the flow from `main()`, then run the example.
 
-## Progress Summary
+## What's included
 
-| Area | Completed | Total | Status |
-|---|---:|---:|---|
-| Creational GoF Patterns | 5 | 5 | Complete |
-| Structural GoF Patterns | 1 | 7 | In Progress |
-| Behavioral GoF Patterns | 6 | 11 | In Progress |
-| Classic GoF Design Patterns | 12 | 23 | In Progress |
-| Extra Practical Patterns | 1 | 1 | Complete |
+| Area | Contents |
+|---|---|
+| [OOP](OOP/README.md) | Encapsulation, abstraction, inheritance, and polymorphism |
+| [Principles](Principles/README.md) | SOLID, DRY, KISS, and YAGNI |
+| [Design patterns](DesignPatterns/README.md) | Creational, structural, and behavioral examples |
+| [LLD examples](Examples/README.md) | Small domain exercises such as banking, parking, and library management |
 
-## Design Pattern Checklist
+## Naming
 
-### Creational Patterns
+Folders use PascalCase, C++ source files use lower snake_case, and directory guides use `README.md`.
 
-| Status | Pattern | Purpose | Location |
-|---|---|---|---|
-| [x] | Factory Method | Let subclasses decide which object to create | [Factory Patterns](DesignPatterns/Creational/FactoryPatterns/README.md) |
-| [x] | Abstract Factory | Create families of related objects | [Factory Patterns](DesignPatterns/Creational/FactoryPatterns/README.md) |
-| [x] | Builder | Build complex objects step by step | [Builder](DesignPatterns/Creational/Builder/README.md) |
-| [x] | Prototype | Create objects by cloning existing objects | [Prototype](DesignPatterns/Creational/Prototype/README.md) |
-| [x] | Singleton | Ensure a class has only one shared instance | [Singleton](DesignPatterns/Creational/Singleton/README.md) |
-| [x] | Simple Factory | Centralize basic object creation logic | [Factory Patterns](DesignPatterns/Creational/FactoryPatterns/README.md) |
+## Build an example
 
-### Structural Patterns
-
-| Status | Pattern | Purpose | Location |
-|---|---|---|---|
-| [x] | Adapter | Make incompatible interfaces work together | [Structural](DesignPatterns/Structural/README.md) |
-| [ ] | Bridge | Separate abstraction from implementation | Planned |
-| [ ] | Composite | Treat individual objects and groups uniformly | Planned |
-| [ ] | Decorator | Add behavior without changing the original class | Planned |
-| [ ] | Facade | Provide a simple interface over a complex subsystem | Planned |
-| [ ] | Flyweight | Share reusable objects to reduce memory usage | Planned |
-| [ ] | Proxy | Control access to another object | Planned |
-
-### Behavioral Patterns
-
-| Status | Pattern | Purpose | Location |
-|---|---|---|---|
-| [x] | Strategy | Choose interchangeable behavior at runtime | [Strategy](DesignPatterns/Behavioral/StrategyDesignPattern/README.md) |
-| [x] | Observer | Notify dependent objects when state changes | [Observer](DesignPatterns/Behavioral/ObserverDesignPattern/README.md) |
-| [x] | Iterator | Traverse a collection without exposing internals | [Iterator](DesignPatterns/Behavioral/Iterator-design-pattern/README.md) |
-| [x] | Command | Encapsulate a request as an object | [Command](DesignPatterns/Behavioral/command-design-pattern/README.md) |
-| [ ] | Chain of Responsibility | Pass a request through a chain of handlers | Planned |
-| [x] | Mediator | Centralize communication between objects | [Mediator](DesignPatterns/Behavioral/Mediator-design-pattern/README.md) |
-| [ ] | Memento | Capture and restore object state | Planned |
-| [x] | State | Change behavior when internal state changes | [State](DesignPatterns/Behavioral/state-design-pattern/README.md) |
-| [ ] | Template Method | Define an algorithm skeleton in a base class | Planned |
-| [ ] | Visitor | Add operations without changing object classes | Planned |
-| [ ] | Interpreter | Represent and evaluate grammar or expressions | Planned |
-
-## Repository Structure
-
-```text
-System-Design-Practice/
-|-- OOP/
-|-- DesignPatterns/
-|   |-- README.md
-|   |-- Creational/
-|   |   |-- README.md
-|   |   |-- Builder/
-|   |   |-- FactoryPatterns/
-|   |   |-- Prototype/
-|   |   `-- Singleton/
-|   |-- Structural/
-|   |   |-- README.md
-|   |   `-- Adapter/
-|   `-- Behavioral/
-|       |-- README.md
-|       |-- command-design-pattern/
-|       |-- Iterator-design-pattern/
-|       |-- Mediator-design-pattern/
-|       |-- ObserverDesignPattern/
-|       |-- state-design-pattern/
-|       `-- StrategyDesignPattern/
-|-- Principles/
-|   |-- README.md
-|   |-- Solid/
-|   |-- DRY/
-|   |-- KISS/
-|   `-- YAGNI/
-|-- Examples/
-|   |-- README.md
-|   |-- AnimalManagement/
-|   |-- AtmCard/
-|   |-- BankManagement/
-|   |-- EmployeeManagement/
-|   |-- GoogleDocs/
-|   |-- HospitalManagement/
-|   |-- LibraryManagement/
-|   |-- parkinglot/
-|   |-- Smart Notification System/
-|   `-- VehicleManagement/
-|-- README.md
-`-- .gitignore
-```
-
-## How To Compile And Run
-
-Compile one file at a time.
+Compile one `.cpp` file at a time from its directory. For example:
 
 ```powershell
 cd Examples\BankManagement
 g++ -std=c++17 -Wall -Wextra bank_management.cpp -o bank_management.exe
-./bank_management.exe
+.\bank_management.exe
 ```
 
-For any other file:
+Use the same command with the source filename shown in the relevant README. Some folders contain multiple independent examples. Generated binaries and object files should not be committed.
 
-```powershell
-g++ -std=c++17 -Wall -Wextra file_name.cpp -o file_name.exe
-./file_name.exe
-```
+## How to study a design
 
-Generated `.exe`, `.out`, `.obj`, and `.o` files should not be committed.
+- What problem or change does this design address?
+- Which class owns each responsibility?
+- How do objects collaborate, starting from `main()`?
+- What becomes easier to change, and what extra complexity does the design add?
 
-## How To Study Each Topic
-
-For every principle, pattern, or example, ask:
-
-- What problem does it solve?
-- Which classes are responsible for which behavior?
-- Which object creates, owns, or uses another object?
-- How does the flow start from `main()`?
-- What becomes easier to change because of this design?
-- What trade-off or extra complexity does this design introduce?
-
-## LLD Practice Examples
-
-The [Examples](Examples/README.md) folder contains small object-oriented systems such as:
-
-- Animal Management
-- ATM Card
-- Bank Management
-- Employee Management
-- Hospital Management
-- Library Management
-- Parking Lot
-- Smart Notification System
-- Vehicle Management
-
-These examples are useful for practicing class identification, responsibility separation, object relationships, and interview-style explanation.
-
-## What This Repo Is Good For
-
-- learning LLD fundamentals
-- understanding class responsibilities
-- revising design patterns
-- practicing small C++ design examples
-- preparing for object-oriented design interviews
-- building confidence in explaining design decisions
-
-## What This Repo Is Not
-
-This is not a complete high-level distributed system design course. For large-scale system design, also study APIs, databases, caching, queues, load balancing, consistency, scaling, monitoring, and deployment architecture.
-
-## Recommended Daily Practice
-
-1. Pick one principle, pattern, or example.
-2. Read the README first.
-3. Read the `.cpp` file slowly.
-4. Compile and run the code.
-5. Modify one small behavior.
-6. Explain the design without looking at the code.
-
-The final step matters most. If you can explain why each class exists and how objects collaborate, you are learning design instead of memorizing code.
+This repository focuses on low-level design. High-level system design topics such as distributed storage, queues, caching, and load balancing are outside its current scope.

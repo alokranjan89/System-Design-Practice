@@ -18,10 +18,13 @@ This example uses an abstract `Employee` base class and concrete `Developer` and
 | `Manager` | Implements work by assigning tasks |
 | `Company` | Stores employees and calls their common work flow |
 
-## How To Run
+## Build
+
+From the repository root:
+
 
 ```powershell
-cd "C:\Users\Asus\OneDrive\Desktop\System Design\Examples\EmployeeManagement"
+cd "Examples\EmployeeManagement"
 g++ -std=c++17 -Wall -Wextra employee_management.cpp -o employee_management.exe
-./employee_management.exe
+.\employee_management.exe
 ```

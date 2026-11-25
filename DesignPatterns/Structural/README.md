@@ -1,37 +1,12 @@
-# Structural Design Patterns
+# Structural Patterns
 
-Structural design patterns focus on how classes and objects are connected. They help make relationships between objects more flexible without forcing large changes in existing code.
+Structural patterns describe how objects and classes are connected.
 
-## Recommended Order
-
-1. [Adapter](Adapter/README.md)
-2. Bridge
-3. Composite
-4. Decorator
-5. Facade
-6. Flyweight
-7. Proxy
-
-## Patterns In This Folder
-
-| Pattern | Main Idea | Folder |
+| Pattern | Use it to | Guide / example |
 |---|---|---|
-| Adapter | Make an incompatible class work with the interface expected by the client. | [Adapter](Adapter/README.md) |
+| Adapter | Translate one interface into the interface a client expects | [Adapter](Adapter/README.md) |
+| Decorator | Add behavior by wrapping an object behind the same interface | [Mario example](Decorator/mario.cpp) |
 
-Other structural patterns are still to be added: Bridge, Composite, Decorator, Facade, Flyweight, and Proxy.
+Other GoF structural patterns—Bridge, Composite, Facade, Flyweight, and Proxy—do not yet have examples in this folder.
 
-## What To Learn
-
-- how to connect old code with new code
-- how wrapper classes reduce direct dependency
-- how clients can depend on clean abstractions
-- how object composition can solve interface mismatch
-
-## How To Run
-
-Move into a pattern folder and compile the example you want:
-
-```powershell
-g++ -std=c++17 -Wall -Wextra file_name.cpp -o file_name.exe
-./file_name.exe
-```
+Compile the source file named by the guide from its directory. The Adapter folder has multiple examples; see its README before choosing one.

@@ -21,10 +21,13 @@ This example demonstrates basic vehicle modeling with inheritance, composition, 
 | `Truck` | Concrete vehicle with cargo-loading behavior |
 | `Driver` | Stores vehicles and drives them polymorphically |
 
-## How To Run
+## Build
+
+From the repository root:
+
 
 ```powershell
-cd "C:\Users\Asus\OneDrive\Desktop\System Design\Examples\VehicleManagement"
+cd "Examples\VehicleManagement"
 g++ -std=c++17 -Wall -Wextra vehicle_factory.cpp -o vehicle_factory.exe
-./vehicle_factory.exe
+.\vehicle_factory.exe
 ```

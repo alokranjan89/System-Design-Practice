@@ -1,41 +1,21 @@
 # Design Patterns
 
-Design patterns are reusable solutions to common software design problems. They are not copy-paste code templates. They are ways to organize classes and responsibilities so the system is easier to extend, test, and understand.
+Design patterns are reusable ways to organize responsibilities and object collaboration. Choose one when it addresses a real design problem; a pattern is not a goal by itself.
 
-## Recommended Order
+## Pattern families
 
-Start with creational patterns, then structural patterns, then behavioral patterns.
-
-1. [Creational Patterns](Creational/README.md)
-2. [Structural Patterns](Structural/README.md)
-3. [Behavioral Patterns](Behavioral/README.md)
-
-## Pattern Families In This Repo
-
-| Family | Purpose | Folder |
+| Family | Concern | Guide |
 |---|---|---|
-| Creational | How objects are created | [Creational](Creational/README.md) |
-| Structural | How objects and classes are connected | [Structural](Structural/README.md) |
-| Behavioral | How objects communicate and share behavior | [Behavioral](Behavioral/README.md) |
+| Creational | Choosing and managing object creation | [Creational patterns](Creational/README.md) |
+| Structural | Connecting or composing objects | [Structural patterns](Structural/README.md) |
+| Behavioral | Delegating work and coordinating communication | [Behavioral patterns](Behavioral/README.md) |
 
-## How To Study A Pattern
+## Study a pattern
 
-For each pattern:
+Read its folder guide, identify the problem and class roles, then trace the example from `main()`. Build one source file at a time. Finish by explaining the trade-off: what is easier to change, and what extra structure did the pattern add?
 
-1. Read the README first.
-2. Identify the problem.
-3. Identify each class role.
-4. Trace the flow from `main()`.
-5. Compile and run the example.
-6. Change one class or add one new behavior.
+## Related topics
 
-## Important Advice
-
-Do not memorize pattern names only. Focus on the design pressure:
-
-- What becomes hard without the pattern?
-- What responsibility is separated?
-- What becomes easier to change later?
-- What extra complexity does the pattern add?
-
-Good design is about choosing the simplest structure that can handle expected change.
+- [OOP fundamentals](../OOP/README.md)
+- [Design principles](../Principles/README.md)
+- [LLD examples](../Examples/README.md)

@@ -19,10 +19,13 @@ This example demonstrates abstract classes and polymorphism using animals.
 | `Cat` | Concrete animal that implements `makeSound()` by meowing |
 | `Owner` | Keeps a list of adopted animals and shows their behavior |
 
-## How To Run
+## Build
+
+From the repository root:
+
 
 ```powershell
-cd "C:\Users\Asus\OneDrive\Desktop\System Design\Examples\AnimalManagement"
+cd "Examples\AnimalManagement"
 g++ -std=c++17 -Wall -Wextra animal_management.cpp -o animal_management.exe
-./animal_management.exe
+.\animal_management.exe
 ```

@@ -24,10 +24,13 @@ This example models a small library system using C++ classes.
 - Keep library-level actions inside the library management class.
 - In larger projects, prefer smart pointers instead of raw pointers.
 
-## How to run
+## Build
+
+From the repository root:
+
 
 ```powershell
-cd "System Design\Examples\LibraryManagement"
+cd "Examples\LibraryManagement"
 g++ -std=c++17 -Wall -Wextra library.cpp -o library.exe
-./library.exe
+.\library.exe
 ```

@@ -35,12 +35,15 @@ main()
   sends another message
 ```
 
-## How To Run
+## Build
+
+From the repository root:
+
 
 ```powershell
-cd "C:\Users\Asus\OneDrive\Desktop\System Design\Examples\Smart Notification System"
-g++ -std=c++17 -Wall -Wextra smartNotification.cpp -o smartNotification.exe
-./smartNotification.exe
+cd "Examples\SmartNotificationSystem"
+g++ -std=c++17 -Wall -Wextra smart_notification.cpp -o smart_notification.exe
+.\smart_notification.exe
 ```
 
 ## What To Learn

@@ -1,127 +1,27 @@
-# Builder Design Pattern
+# Builder
 
-## What is the Builder pattern?
+Builder assembles an object through clear construction steps. It can make creation easier to read when an object has many optional settings or multiple valid configurations.
 
-The Builder pattern is used to construct a complex object step by step. Instead of passing a huge list of parameters to a constructor, we use a builder object that sets one part at a time and finally creates the final object.
+## Examples
 
-This pattern is very useful when objects have many optional fields or many configuration combinations.
+| File | Example |
+|---|---|
+| [`builder.cpp`](builder.cpp) | Computer configuration |
+| [`pizza.cpp`](pizza.cpp) | Pizza with optional toppings |
 
-## Problem it solves
+Look for the product, builder, and final `build()` call. Trace which values are set and whether required values can be omitted.
 
-When a class has many optional attributes, creating it directly becomes difficult because the constructor may need many arguments. This leads to:
+## When it helps
 
-- long parameter lists
-- confusing constructor calls
-- fragile object creation logic
-- many overloaded constructors
+Use Builder when a long constructor or many constructor overloads make object creation confusing. For a small object with a few required values, a regular constructor is usually clearer. The pattern adds builder code, and `build()` should ensure required fields are valid.
 
-The Builder pattern solves this by separating object construction from the final object representation.
+## Build
 
-## Key idea
-
-Create a builder class that stores the object being built and provides methods like `setCPU()`, `setRAM()`, and `setGPU()`. At the end, call `build()` to return the final object.
-
-This provides a fluent and readable way to construct complex objects.
-
-## Important notes
-
-- The product is the final object being created.
-- The builder encapsulates the construction steps.
-- A fluent interface allows method chaining.
-- The builder hides complex initialization details.
-- It is easier to create different variants of the same object.
-- It helps when object creation is not a single simple assignment.
-
-## When to use
-
-Use Builder when:
-
-- the object has many optional fields
-- the constructor becomes too long
-- you need to create objects in multiple steps
-- different object configurations are common
-- you want readable object creation code
-
-## Advantages
-
-- cleaner object construction
-- easier to understand than long constructors
-- supports many configurations
-- improves maintainability
-- separates construction logic from the object itself
-
-## Disadvantages
-
-- adds extra classes
-- may be unnecessary for small objects
-- can be more code than a simple constructor
-
-## Real-world example
-
-Think about creating a computer configuration:
-
-- CPU
-- RAM
-- SSD
-- GPU
-- Wi-Fi
-- RGB
-
-Instead of passing all these values in one constructor, the builder assembles them one by one.
-
-## Easy Notes For Revision
-
-**Simple idea:** build a complex object step by step.
-
-**Example:** instead of calling a long constructor like `Computer(cpu, ram, ssd, gpu, wifi)`, use `ComputerBuilder().setCPU(...).setRAM(...).build()`.
-
-**Where to use:**
-- when a class has many optional fields
-- when constructor arguments become confusing
-- when object creation should be readable
-- when different configurations of the same object are common
-
-**Advantages:**
-- avoids long constructors
-- makes object creation readable
-- supports optional values clearly
-- keeps construction logic in one place
-
-**Disadvantages:**
-- adds extra builder code
-- can be unnecessary for small objects
-- invalid objects are possible if `build()` does not validate required fields
-
-**Interview explanation:** Builder separates the construction of a complex object from the object itself. It is useful when an object has many optional properties and should be created in a readable step-by-step way.
-
-## In this folder
-
-- `builder.cpp` demonstrates a `Computer` object being created through a `ComputerBuilder`.
-- `pizza.cpp` demonstrates a `Pizza` object with optional toppings created through `PizzaBuilder`.
-
-## Example walkthrough
-
-1. Create a builder.
-2. Set the required properties.
-3. Chain method calls.
-4. Call `build()`.
-5. Get the final built object.
-
-## How to run
+Run from this directory, one source file at a time:
 
 ```powershell
-cd "System Design\DesignPatterns\Creational\Builder"
 g++ -std=c++17 -Wall -Wextra builder.cpp -o builder.exe
-./builder.exe
+.\builder.exe
 ```
 
-To run the pizza example:
-
-```powershell
-g++ -std=c++17 -Wall -Wextra pizza.cpp -o pizza.exe
-./pizza.exe
-```
-
-## Simple summary
-
-The Builder pattern is used when an object has many parts or optional settings. It makes creation readable, modular, and easy to customize without creating huge constructors.
+Substitute `pizza.cpp` to run the pizza example.

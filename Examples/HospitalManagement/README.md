@@ -1,74 +1,20 @@
-# Hospital Management System
+# Hospital Management Exercise
 
-This example demonstrates a low-level design for a simple hospital management system.
+A small LLD exercise for registering doctors and patients and connecting them through appointments. It does not model billing, prescriptions, medicines, authentication, or payments.
 
-## Requirements
+## Model
 
-- A hospital manages doctors.
-- A hospital manages patients.
-- A hospital manages appointments.
-- A doctor can view appointments.
-- A patient can book appointments.
-- One doctor can treat many patients.
-- One patient can consult multiple doctors.
-- An appointment connects one doctor and one patient.
+- `Person` is the common base class for `Doctor` and `Patient`.
+- `Appointment` connects one doctor and one patient at a date and time.
+- `Hospital` manages doctors, patients, and appointments.
 
-## Out of scope
+Trace the booking flow in [`hospital.cpp`](hospital.cpp). Check how the example represents dates and object relationships; these are simplified teaching choices, not a complete hospital domain model.
 
-- Billing
-- Medicines
-- Prescriptions
-- Authentication
-- Payments
+## Build
 
-## Classes
-
-- `Person` - common base class for doctors and patients.
-- `Doctor` - represents a doctor and their specialization.
-- `Patient` - represents a patient and their age.
-- `Appointment` - connects one doctor and one patient at a date/time.
-- `Hospital` - manages doctors, patients, and appointments.
-
-## Relationships
-
-- `Doctor` is a `Person`.
-- `Patient` is a `Person`.
-- `Hospital` has many doctors.
-- `Hospital` has many patients.
-- `Hospital` has many appointments.
-- `Appointment` connects a doctor and a patient.
-
-## OOP concepts used
-
-- Encapsulation: data is kept inside classes.
-- Abstraction: `Person` represents common behavior.
-- Inheritance: `Doctor` and `Patient` inherit from `Person`.
-- Runtime polymorphism: `displayRole()` is overridden.
-- Aggregation: hospital stores doctors, patients, and appointments.
-- Association: appointment links a doctor and a patient.
-
-## SOLID notes
-
-- SRP: each class has one main responsibility.
-- OCP: new person types like `Nurse` can be added later.
-- LSP: `Person*` can point to `Doctor` or `Patient`.
-- ISP: classes expose only methods they need.
-- DIP: higher-level hospital logic works through related objects.
-
-## Possible improvements
-
-- Use `Doctor*` and `Patient*` inside `Appointment` instead of only IDs.
-- Use a date/time class instead of plain strings.
-- Add cancel appointment.
-- Add search doctor.
-- Add search patient.
-- Add remove appointment.
-- Use smart pointers for ownership.
-
-## How to run
+From the repository root:
 
 ```powershell
-cd "System Design\Examples\HospitalManagement"
-g++ -std=c++17 -Wall -Wextra hospital.cpp -o hospital.exe
-./hospital.exe
+g++ -std=c++17 -Wall -Wextra Examples/HospitalManagement/hospital.cpp -o hospital.exe
+.\hospital.exe
 ```

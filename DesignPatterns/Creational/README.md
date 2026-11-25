@@ -1,29 +1,12 @@
-# Creational Design Patterns
+# Creational Patterns
 
-Creational design patterns focus on object creation. This folder is only an index for the creational pattern notes.
+Creational patterns organize how client code obtains objects.
 
-## Recommended Order
-
-1. [Factory Patterns](FactoryPatterns/README.md)
-2. [Builder](Builder/README.md)
-3. [Prototype](Prototype/README.md)
-4. [Singleton](Singleton/README.md)
-
-## Patterns In This Folder
-
-| Pattern | Main Idea | Folder |
+| Pattern | Use it to | Guide |
 |---|---|---|
-| Factory Patterns | Move object creation away from client code. | [FactoryPatterns](FactoryPatterns/README.md) |
-| Builder | Build complex objects step by step. | [Builder](Builder/README.md) |
-| Prototype | Create objects by cloning existing objects. | [Prototype](Prototype/README.md) |
-| Singleton | Ensure only one shared instance exists. | [Singleton](Singleton/README.md) |
+| Simple Factory, Factory Method, Abstract Factory | Centralize creation, defer creation, or create related product families | [Factory patterns](Factories/README.md) |
+| Builder | Assemble an object with multiple configuration steps | [Builder](Builder/README.md) |
+| Prototype | Create a similar object by cloning an existing one | [Prototype](Prototype/README.md) |
+| Singleton | Provide one shared instance with a global access point | [Singleton](Singleton/README.md) |
 
-## How To Use This Folder
-
-Open one pattern folder at a time. Read that pattern's README, then compile and run its `.cpp` example.
-
-```powershell
-cd "C:\Users\Asus\OneDrive\Desktop\System Design\DesignPatterns\Creational\Builder"
-g++ -std=c++17 -Wall -Wextra builder.cpp -o builder.exe
-./builder.exe
-```
+Start with the factory examples to compare the three approaches. Then read each guide and compile the named source file from its folder.

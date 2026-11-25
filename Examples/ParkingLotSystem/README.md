@@ -27,7 +27,7 @@ A small C++ object-oriented design for managing vehicle entry, parking spot allo
 
 ## UML class diagram
 
-The class diagram is stored in a separate file: [parkinglot-uml.mmd](./parkinglot-uml.mmd)
+The class diagram is stored in a separate file: [parking_lot_uml.mmd](./parking_lot_uml.mmd)
 
 You can open it in any Mermaid-compatible viewer or editor.
 
@@ -41,13 +41,17 @@ You can open it in any Mermaid-compatible viewer or editor.
 6. Payment strategy processes the charge
 7. The parked spot is released
 
-## How to run
+## Build
+
+From the repository root:
+
+
+From the repository root:
 
 ```powershell
-cd "C:\Users\bhart\OneDrive\Desktop\System-Design-Practice\Examples\parkinglot"
-g++ -std=c++17 -Wall -Wextra parkinglot.cpp -o parkinglot.exe
-./parkinglot.exe
+g++ -std=c++17 -Wall -Wextra Examples/ParkingLotSystem/parking_lot.cpp -o parking_lot.exe
+.\parking_lot.exe
 ```
 
 
-This example focuses on design clarity rather than production-scale features like multi-lot management, concurrency, or database storage.
+This is a learning exercise. It does not address production concerns such as concurrent spot allocation, persistence, or multiple lots.

@@ -1,38 +1,18 @@
-# LLD Examples
+# LLD Practice Examples
 
-This folder contains small low-level design examples. Use these after you have studied the principles and design patterns.
+These small C++ exercises help practice class responsibilities, object relationships, and collaboration. They are independent examples; start with one README and follow its listed source file.
 
-## Recommended Order
+| Example | Guide |
+|---|---|
+| Animal Management | [README](AnimalManagement/README.md) |
+| Employee Management | [README](EmployeeManagement/README.md) |
+| Bank Management | [README](BankManagement/README.md) |
+| ATM Card | [README](AtmCard/README.md) |
+| Vehicle Management | [README](VehicleManagement/README.md) |
+| Library Management | [README](LibraryManagement/README.md) |
+| Hospital Management | [README](HospitalManagement/README.md) |
+| Parking Lot | [README](ParkingLotSystem/README.md) |
+| Smart Notification System | [README](SmartNotificationSystem/README.md) |
+| Google Docs | [Source](GoogleDocs/google_docs.cpp) |
 
-1. [Animal Management](AnimalManagement/README.md)
-2. [Employee Management](EmployeeManagement/README.md)
-3. [Bank Management](BankManagement/README.md)
-4. [ATM Card](AtmCard/README.md)
-5. [Vehicle Management](VehicleManagement/README.md)
-6. [Library Management](LibraryManagement/README.md)
-7. [Hospital Management](HospitalManagement/README.md)
-8. [Parking Lot](parkinglot/README.md)
-9. [Smart Notification System](Smart%20Notification%20System/README.md)
-10. [Google Docs](GoogleDocs/google.cpp)
-
-## What To Practice
-
-For each example, identify:
-
-- entities/classes
-- attributes
-- methods
-- relationships between classes
-- where inheritance or abstraction is used
-- what can be improved later
-
-## How To Run
-
-Open a folder, compile its `.cpp` file, then run the executable:
-
-```powershell
-g++ -std=c++17 -Wall -Wextra file_name.cpp -o file_name.exe
-./file_name.exe
-```
-
-If a folder has more than one source file, read its README to know which one to start with.
+For each example, trace the flow from `main()`, note which object owns or uses another, and consider what requirement would force a design change. Compile one `.cpp` at a time with the command in the repository [README](../README.md).
