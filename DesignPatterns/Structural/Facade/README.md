@@ -12,6 +12,47 @@ Facade provides a simple interface to a larger subsystem. It coordinates multipl
 
 `watchMovie()` turns on the TV and sound system, then starts the DVD player. The subsystem classes remain independent and can still be used directly.
 
+## Typical code
+
+```cpp
+class TV {
+public:
+    void turnOn();
+};
+
+class SoundSystem {
+public:
+    void turnOn();
+};
+
+class DVDPlayer {
+public:
+    void play();
+};
+
+class HomeTheaterFacade {
+private:
+    TV tv;
+    SoundSystem sound;
+    DVDPlayer dvd;
+
+public:
+    void watchMovie() {
+        tv.turnOn();
+        sound.turnOn();
+        dvd.play();
+    }
+};
+
+int main() {
+    HomeTheaterFacade homeTheater;
+    homeTheater.watchMovie();
+    return 0;
+}
+```
+
+The client calls only `watchMovie()`. The Facade owns the correct subsystem sequence and calls each subsystem directly.
+
 ## Where to use
 
 - Use a Facade when a client needs only a high-level operation, such as `startComputer()` or `placeOrder()`, while several subsystem calls happen underneath.
