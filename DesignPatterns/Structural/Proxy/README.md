@@ -71,4 +71,3 @@ This is a virtual proxy: `RealImage` is created only when `display()` is called.
 - Cache and lazy initialization require clear invalidation, lifetime, and error rules.
 
 Proxy stands between a client and another object. Adapter changes an incompatible interface, Facade simplifies an entire subsystem, and Decorator adds behavior while preserving the interface.
-
